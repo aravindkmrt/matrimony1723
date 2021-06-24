@@ -151,6 +151,116 @@ And user have to click edit profile about
 
 And user have to click edit profile save
 
+And user have to click edit profile education and occupation
+
+And user have to click edit profile Highest Education
+
+And user have to click edit profile College or Institution
+
+And user have to click edit profile Education in Detail
+
+And user have to click edit profile Employed In
+
+And user have to click edit profile Occupation 
+
+And user have to click edit profile Occupation in Detail
+
+And user have to click edit profile Annual Income
+
+And user have to click edit profile save
+
+And user have to click edit profile click family details
+
+And user have to click edit profile Parent's Contact No:
+
+And user have to click edit profile  Family Value
+
+And user have to click edit profile  Family Type 
+
+And user have to click edit profile  Family Status
+
+And user have to click edit profile  Native Place
+
+And user have to click edit profile  Father's Occupation
+
+And user have to click edit profile  Mother's Occupation
+
+And user have to click edit profile  No. of Brothers
+
+And user have to click edit profile  Brothers Married
+
+And user have to click edit profile  No. of Sisters
+
+And user have to click edit profile  Sisters Married
+
+And user have to click edit profile  About My Family
+
+And user have to click edit profile Click hobbies and interest 
+
+And user have to click edit profile  What are your Hobbies and Interest?
+
+And user have to click edit profile  Others 
+
+And user have to click edit profile  Your favourite music
+
+And user have to click edit profile  Others 
+
+And user have to click edit profile  Sports you like
+
+And user have to click edit profile  Others 
+
+And user have to click edit profile  Your favourite food
+
+And user have to click edit profile  Others 
+
+And user have to click edit profile  save
+
+And user have to click edit profile  edit partner preference
+
+And user have to click edit profile partner preference  marital status
+
+And user have to click edit profile partner preference  age
+
+And user have to click edit profile partner preference  height
+
+And user have to click edit profile partner preference physical status 
+
+And user have to click edit profile partner preference  mother tongue
+
+And user have to click edit profile partner preference subcaste 
+
+And user have to click edit profile partner preference star
+
+And user have to click edit profile partner preference  chevvai dosham
+
+And user have to click edit profile partner preference  educationm 
+
+And user have to click edit profile partner preference employedIn
+
+And user have to click edit profile partner preference occupation  
+
+And user have to click edit profile partner preference citzenship
+
+And user have to click edit profile partner preference country living
+
+And user have to click edit profile partner preference residing state in india
+
+And user have to click edit profile partner preference  residing district
+
+And user have to click edit profilepartner preference  food habits
+
+And user have to click edit profile partner preference smoking habits
+
+And user have to click edit profile  partner preference drinking habits
+
+And user have to click edit profile  partner preference annual income
+
+And user have to click edit profile  partner preference about my partner
+
+And user have to click edit profile  partner preference save 
+
+
+
 
 
 

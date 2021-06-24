@@ -1,5 +1,6 @@
 package comunity.com;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.apache.poi.util.SystemOutLogger;
@@ -490,7 +491,7 @@ public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony 
 	public void user_have_to_enter_the_astrology_details() throws InterruptedException {
 		WebElement w40 = driver.findElement(By.xpath("//*[@id=\"star\"]"));
 		selectValue(w40, "Swathi");
-		JavascriptExecutor j = (JavascriptExecutor) driver;
+	
 		
 		WebElement w41 = driver.findElement(By.xpath("//*[@id ='raasi']"));
 		selectValue(w41, "Kumbh (Aquarius)");
@@ -508,6 +509,7 @@ public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony 
 		
 		
 		WebElement w46 = driver.findElement(By.xpath("//*[@id ='birth_country']"));
+		JavascriptExecutor j = (JavascriptExecutor) driver;
 		j.executeScript("arguments[0].scrollIntoView(true);", w46);
 				selectValue(w46, "India");
 		Thread.sleep(3000);
@@ -619,9 +621,12 @@ Thread.sleep(3000);
 	//login module
 	
 	@When("user have to enter the login url")
-	public void user_have_to_enter_the_login_url() throws Exception {
+	public void user_have_to_enter_the_login_url() throws Throwable {
+		writeDataFromExcel(2, 3, "Details", "java");
+		
 		loadUrl("https://www.communitymatrimony.com/login/");
 		Thread.sleep(4000);
+		
 	}
 	
 	
@@ -674,12 +679,14 @@ driver.findElement(By.xpath("//*[@href=\"https://www.vanniyarmatrimony.com/myhom
 	}
 	
 	@When("user have to click edit profile created by")
-	public void user_have_to_click_edit_profile_created_by() throws Throwable {
+	public void user_have_to_click_edit_profile_created_by() throws IOException  {
 		WebElement get1 = driver.findElement(By.xpath("//*[@id=\"createdfor\"]"));
-		firstSelected(get1, 1, 3);	
+		firstSelected(get1);
 		selectIndex(get1, 2);
-		firstSelected(get1, 4, 4);
+		firstSelected(get1);
 	}
+
+	
 
 	@When("user have to click edit profile name")
 	public void user_have_to_click_edit_profile_name() {
@@ -698,7 +705,7 @@ get2.clear();
 	@When("user have to click edit profile date of birth")
 	public void user_have_to_click_edit_profile_date_of_birth() {
 		WebElement get3 = driver.findElement(By.xpath("//*[@id=\"dobDay\"]"));
-		firstSelected(get3, 2, 3);
+		firstSelected(get3);
 		selectIndex(get3, 3);
 		firstSelected(get3);
 		WebElement get4 = driver.findElement(By.xpath("//*[@id=\"dobMonth\"]"));
@@ -718,41 +725,40 @@ get2.clear();
 		
 	boolean ab1 = bol1.isSelected();
 		if (ab1==true) {
-			String s1 = bol1.getText();
-		System.out.println("unmarried"+s1);
-		} 
-		else {
-		System.out.println("unselected unmarried");
-	}
+			WebElement bolsib1 = driver.findElement(By.xpath("//*[@id='maritalStatus1']/following-sibling::*"));
+			
+			String s1 = bolsib1.getText();
+		System.out.println(s1);
+		}
 		
 		WebElement bol2 = driver.findElement(By.xpath("//*[@id='maritalStatus2']"));
 		toClick(bol2);
 		boolean ab2 = bol2.isSelected();
 		if (ab2==true) {
-			System.out.println("widow");
+			WebElement bolsib2 = driver.findElement(By.xpath("//*[@id='maritalStatus2']/following-sibling::*"));
+			String s2 = bolsib2.getText();
+			System.out.println(s2);
 			} 
-			else {
-			System.out.println("unselected widow");
-		}
+		
 		
 
 		WebElement bol3 = driver.findElement(By.xpath("//*[@id='maritalStatus3']"));
 		boolean ab3 = bol3.isSelected();
 		if (ab3==true) {
-			System.out.println("divorced");
+			WebElement bolsib3 = driver.findElement(By.xpath("//*[@id='maritalStatus3']/following-sibling::*"));
+			String s3 = bolsib3.getText();
+			System.out.println(s3);
 			} 
-			else {
-			System.out.println("unselected divorced");
-		}
+	
 
 		WebElement bol4 = driver.findElement(By.xpath("//*[@id='maritalStatus4']"));
 		boolean ab4 = bol4.isSelected();
 		if (ab4==true) {
-			System.out.println("seperated");
+			WebElement bolsib4 = driver.findElement(By.xpath("//*[@id='maritalStatus4']/following-sibling::*"));
+			String s4 = bolsib4.getText();
+			System.out.println(s4);
 			} 
-			else {
-			System.out.println("unselected seperated");
-		}
+			
 
 		
 
@@ -787,22 +793,22 @@ get2.clear();
 		WebElement get10 = driver.findElement(By.xpath("//*[@id=\"physicalStatus0\"]"));
 		boolean ab1 = get10.isSelected();
 		if (ab1==true) {
-			String s1 = get10.getText();
-		System.out.println("normal"+s1);
+			WebElement physi = driver.findElement(By.xpath("//*[@id=\"physicalStatus0\"]/following-sibling::*"));
+		
+			String s1 = physi.getText();
+		System.out.println(s1);
 		} 
-		else {
-		System.out.println("unselected physical challanged");
-	}
+		
 		WebElement get9 = driver.findElement(By.xpath("//*[@id=\"physicalStatus1\"]"));
 		toClick(get9);
 		boolean ab2 = get9.isSelected();
 		if (ab2==true) {
-			String s1 = get10.getText();
-		System.out.println("selected physically challanged"+s1);
+			WebElement physi1 = driver.findElement(By.xpath("//*[@id=\"physicalStatus1\"]/following-sibling::*"));
+
+			String s1 = physi1.getText();
+		System.out.println(s1);
 		} 
-		else {
-		System.out.println("unselected normal");
-	}
+		
 		
 
 	    
@@ -819,12 +825,12 @@ get2.clear();
 	}
 
 	@When("user have to click edit profile mother tongue")
-	public void user_have_to_click_edit_profile_mother_tongue() throws Throwable {
+	public void user_have_to_click_edit_profile_mother_tongue() {
 		WebElement get12 = driver.findElement(By.xpath("//*[@id=\"motherTongue\"]"));
 		firstSelected(get12);
 		selectIndex(get12, 6);
 		firstSelected(get12);
-		setExcelData("aravind", 1, 1, "firstSelected1");
+	
 	  
 	}
 
@@ -879,31 +885,31 @@ get2.clear();
 		WebElement get17 = driver.findElement(By.xpath("//*[@id=\"dosham1\"]"));
 		boolean ab2 = get17.isSelected();
 		if (ab2==true) {
-			String s1 = get17.getText();
-		System.out.println("selected yes"+s1);
+			WebElement dosh = driver.findElement(By.xpath("//*[@id=\"dosham1\"]/following-sibling::*"));
+
+			String s1 = dosh.getText();
+		System.out.println(s1);
 		} 
-		else {
-		System.out.println("unselected no,i dont know");
-	}
+	
 		WebElement get19 = driver.findElement(By.xpath("//*[@id=\"dosham2\"]"));
 		boolean ab1 = get19.isSelected();
 		if (ab1==true) {
-			String s1 = get19.getText();
-		System.out.println("selected no"+s1);
+			WebElement dosh1 = driver.findElement(By.xpath("//*[@id=\"dosham2\"]/following-sibling::*"));
+
+			String s2 = dosh1.getText();
+		System.out.println(s2);
 		} 
-		else {
-		System.out.println("unselected yes,i dont know");
-	}
+		
 		WebElement get20 = driver.findElement(By.xpath("//*[@id=\"dosham3\"]"));
 		toClick(get20);
 		boolean ab3 = get20.isSelected();
 		if (ab3==true) {
-			String s1 = get20.getText();
-		System.out.println("selected i dont know"+s1);
+			WebElement dosh2 = driver.findElement(By.xpath("//*[@id=\"dosham3\"]/following-sibling::*"));
+
+			String s3 = dosh2.getText();
+		System.out.println(s3);
 		} 
-		else {
-		System.out.println("unselected no,yes");
-	}
+	
 		
 	    
 	}
@@ -913,17 +919,21 @@ get2.clear();
 		WebElement get18 = driver.findElement(By.xpath("//*[@id=\"eatingHabits1\"]"));
 		boolean ab3 = get18.isSelected();
 		if (ab3==true) {
-			String s1 = get18.getText();
-		System.out.println("vegetarian"+s1);
+			WebElement eatsib1 = driver.findElement(By.xpath("//*[@id=\"eatingHabits1\"]/following-sibling::*"));
+
+			
+			String s1 = eatsib1.getText();
+		System.out.println(s1);
 		} 
-		else {
-		System.out.println("unselected vegetarian");
-	}
+
 		WebElement eat1 = driver.findElement(By.xpath("//*[@id=\"eatingHabits2\"]"));
 		boolean ab1 = eat1.isSelected();
 		if (ab1==true) {
-			String s2 = eat1.getText();
-		System.out.println("non vegetarian"+s2);
+WebElement eatsib2 = driver.findElement(By.xpath("//*[@id=\"eatingHabits2\"]/following-sibling::*"));
+
+			
+			String s2 = eatsib2.getText();
+		System.out.println(s2);
 		} 
 		else {
 		System.out.println("unselected non vegetarian");
@@ -932,52 +942,59 @@ get2.clear();
 		toClick(eat2);
 		boolean ab4 = eat2.isSelected();
 		if (ab4==true) {
-			String s3 = eat2.getText();
-		System.out.println("eggetarian"+s3);
+WebElement eatsib3 = driver.findElement(By.xpath("//*[@id=\"eatingHabits3\"]/following-sibling::*"));
+
+			
+			String s3 = eatsib3.getText();
+		System.out.println(s3);
 		} 
-		else {
-		System.out.println("unselected eggetarian");
-	}
+	
 		WebElement eat3 = driver.findElement(By.xpath("//*[@id=\"eatingHabits4\"]"));
 		boolean ab2 = eat3.isSelected();
 		if (ab2==true) {
-			String s4 = eat3.getText();
-		System.out.println("vegan"+s4);
+WebElement eatsib4 = driver.findElement(By.xpath("//*[@id=\"eatingHabits4\"]/following-sibling::*"));
+
+			
+			String s4 = eatsib4.getText();
+		System.out.println(s4);
 		} 
-		else {
-		System.out.println("unselected vegan");
-	}
+		
 	}
 	@When("user have to click edit profile smoiking habits")
 	public void user_have_to_click_edit_profile_smoiking_habits() {
 		WebElement smo1 = driver.findElement(By.xpath("//*[@id=\"smoke1\"]"));
 		boolean ab1 = smo1.isSelected();
 		if (ab1==true) {
-			String s1 = smo1.getText();
-		System.out.println("Non-smoker"+s1);
+WebElement smosib1 = driver.findElement(By.xpath("//*[@id=\"smoke1\"]/following-sibling::*"));
+
+			
+			String s1 = smosib1.getText();
+
+			
+		System.out.println(s1);
 		} 
-		else {
-		System.out.println("unselected Non-smoker");
-	}
+		
 		WebElement smo2 = driver.findElement(By.xpath("//*[@id=\"smoke2\"]"));
 		toClick(smo2);
 	boolean ab2 = smo2.isSelected();
 	if (ab2==true) {
-		String s2 = smo2.getText();
-	System.out.println("Light / Social smoker"+s2);
+		WebElement smosib2 = driver.findElement(By.xpath("//*[@id=\"smoke2\"]/following-sibling::*"));
+
+		
+		String s2 = smosib2.getText();
+	System.out.println(s2);
 	} 
-	else {
-	System.out.println("unselected Light / Social smoker");
-}
+	
 	WebElement smo3 = driver.findElement(By.xpath("//*[@id=\"smoke3\"]"));
 boolean ab3 = smo3.isSelected();
 if (ab3==true) {
-	String s3 = smo3.getText();
-System.out.println("Regular smoker"+s3);
+	WebElement smosib3 = driver.findElement(By.xpath("//*[@id=\"smoke3\"]/following-sibling::*"));
+
+	
+	String s3 = smosib3.getText();
+System.out.println(s3);
 } 
-else {
-System.out.println("unselected Regular smoker");
-}
+
 
 	    
 	}
@@ -988,47 +1005,682 @@ System.out.println("unselected Regular smoker");
 		WebElement smo1 = driver.findElement(By.xpath("//*[@id=\"drink1\"]"));
 		boolean ab1 = smo1.isSelected();
 		if (ab1==true) {
-			String s1 = smo1.getText();
-		System.out.println("Non-drinker"+s1);
+WebElement drisib1 = driver.findElement(By.xpath("//*[@id=\"drink1\"]/following-sibling::*"));
+
+			
+			String s1 = drisib1.getText();
+		System.out.println(s1);
 		} 
-		else {
-		System.out.println("unselected Non-drinker");
-	}
+		
 		WebElement smo2 = driver.findElement(By.xpath("//*[@id=\"drink2\"]"));
 		toClick(smo2);
 	boolean ab2 = smo2.isSelected();
 	if (ab2==true) {
-		String s2 = smo2.getText();
-	System.out.println("Light / Social drinker"+s2);
-	} 
-	else {
-	System.out.println("unselected Light / Social drinker");
-}
+		WebElement drisib2 = driver.findElement(By.xpath("//*[@id=\"drink2\"]/following-sibling::*"));
+
+		
+		String s2 = drisib2.getText();
+	System.out.println(s2);
+	}
+	
 	WebElement smo3 = driver.findElement(By.xpath("//*[@id=\"drink3\"]"));
 boolean ab3 = smo3.isSelected();
 if (ab3==true) {
-	String s3 = smo3.getText();
-System.out.println("Regular drinker"+s3);
-} 
-else {
-System.out.println("unselected Regular drinker");
-}
+	WebElement drisib3 = driver.findElement(By.xpath("//*[@id=\"drink3\"]/following-sibling::*"));
 
-	    
+	
+	String s3 = drisib3.getText();
+System.out.println(s3);
+}
 	}
+	    
+	
 	
 
 	@When("user have to click edit profile about")
 	public void user_have_to_click_edit_profile_about() {
 		WebElement get22 = driver.findElement(By.xpath("//*[@id=\"description\"]"));
 		enteredTxt(get22);
+		
+		
 	    
 	}
 
 	@When("user have to click edit profile save")
 	public void user_have_to_click_edit_profile_save() {
+		
 	    
 	}
+	@When("user have to click edit profile education and occupation")
+	public void user_have_to_click_edit_profile_education_and_occupation() throws Exception {
+	
+		WebElement edu1 = driver.findElement(By.xpath("(//*[@class=\"title-link\"])[2]"));
+		
+		Thread.sleep(3000);
+		toMove(edu1);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click()",edu1);
+		Thread.sleep(5000);
+		
+	   
+	}
+
+	@When("user have to click edit profile Highest Education")
+	public void user_have_to_click_edit_profile_Highest_Education() {
+		WebElement edu2 = driver.findElement(By.xpath("//*[@id=\"educationCategory\"]"));
+		firstSelected(edu2);
+		selectIndex(edu2, 6);
+	  firstSelected(edu2);
+		
+	 
+	}
+
+	
+	@When("user have to click edit profile College or Institution")
+	public void user_have_to_click_edit_profile_College_or_Institution() {
+		WebElement edu2 = driver.findElement(By.xpath("//*[@id=\"institutionName\"]"));
+		enteredTxt(edu2);
+	edu2.clear();
+		toInput(edu2, "university college of engineering panruti");
+		enteredTxt(edu2);
+	    
+	}
+
+
+	@When("user have to click edit profile Education in Detail")
+	public void user_have_to_click_edit_profile_Education_in_Detail() {
+		WebElement edu3 = driver.findElement(By.xpath("//*[@id=\"educationInDetail\"]"));
+		enteredTxt(edu3);
+	edu3.clear();
+		toInput(edu3, "b.ed");
+		enteredTxt(edu3);
+	    
+	}
+
+	@When("user have to click edit profile Employed In")
+	public void user_have_to_click_edit_profile_Employed_In() {
+		WebElement emp = driver.findElement(By.xpath("//*[@id=\"employmentCategory1\"]"));
+		boolean ab3 = emp.isSelected();
+		if (ab3==true) {
+			
+WebElement empsib1 = driver.findElement(By.xpath("//*[@id=\"employmentCategory1\"]/following-sibling::*"));
+
+			
+			String s1 = empsib1.getText();
+			
+		System.out.println(s1);
+		} 
+		
+		WebElement emp1 = driver.findElement(By.xpath("//*[@id=\"employmentCategory2\"]"));
+		boolean ab1 = emp1.isSelected();
+		if (ab1==true) {
+WebElement empsib2 = driver.findElement(By.xpath("//*[@id=\"employmentCategory2\"]/following-sibling::*"));
+
+			
+			String s2 = empsib2.getText();	
+			System.out.println(s2);
+		} 
+		WebElement emp2 = driver.findElement(By.xpath("//*[@id=\"employmentCategory3\"]"));
+		boolean ab4 = emp2.isSelected();
+		if (ab4==true) {
+WebElement empsib3 = driver.findElement(By.xpath("//*[@id=\"employmentCategory3\"]/following-sibling::*"));
+
+			
+			String s3 = empsib3.getText();
+		System.out.println(s3);
+		} 
+		
+		WebElement emp3 = driver.findElement(By.xpath("//*[@id=\"employmentCategory4\"]"));
+		boolean ab2 = emp3.isSelected();
+		if (ab2==true) {
+			
+WebElement empsib4 = driver.findElement(By.xpath("//*[@id=\"employmentCategory4\"]/following-sibling::*"));
+
+			
+			String s4 = empsib4.getText();	
+			System.out.println(s4);
+		} 
+		WebElement emp4 = driver.findElement(By.xpath("//*[@id=\"employmentCategory6\"]"));
+		boolean ab5 = emp4.isSelected();
+		if (ab5==true) {
+WebElement empsib6 = driver.findElement(By.xpath("//*[@id=\"employmentCategory6\"]/following-sibling::*"));
+
+			
+			String s6 = empsib6.getText();
+		System.out.println("private"+s6);
+		} 
+		
+		WebElement emp6 = driver.findElement(By.xpath("//*[@id=\"employmentCategory7\"]"));
+		boolean ab6 = emp6.isSelected();
+		if (ab6==true) {
+WebElement empsib7 = driver.findElement(By.xpath("//*[@id=\"employmentCategory7\"]/following-sibling::*"));
+
+			
+			String s7 = empsib7.getText();
+			System.out.println(s7);
+		} 
+		
+	    
+	}
+
+	@When("user have to click edit profile Occupation")
+	public void user_have_to_click_edit_profile_Occupation() {
+		WebElement ocu = driver.findElement(By.xpath("//*[@id=\"occupation\"]"));
+		firstSelected(ocu);
+		selectIndex(ocu, 6);
+	  firstSelected(ocu);
+		
+	    
+	}
+
+	@When("user have to click edit profile Occupation in Detail")
+	public void user_have_to_click_edit_profile_Occupation_in_Detail() {
+		WebElement ocupd = driver.findElement(By.xpath("//*[@id=\"occupationInDetail1\"]"));
+		enteredTxt(ocupd);
+		ocupd.clear();
+		toInput(ocupd, "software professional");
+		enteredTxt(ocupd);
+	    
+	}
+
+	@When("user have to click edit profile Annual Income")
+	public void user_have_to_click_edit_profile_Annual_Income() {
+//		WebElement anual = driver.findElement(By.xpath("//*[@id=\"annualIncomeCurrency\"]"));
+//		firstSelected(anual);
+//		selectIndex(anual, 6);
+//	  firstSelected(anual);
+	  WebElement anual1 = driver.findElement(By.xpath("(//*[@id=\"annualIncome\"])[1]"));
+		firstSelected(anual1);
+		selectIndex(anual1, 8);
+	  firstSelected(anual1);
+		
+		
+		
+	    
+	}
+
+	@When("user have to click edit profile click family details")
+	public void user_have_to_click_edit_profile_click_family_details() throws Exception {
+WebElement edu1 = driver.findElement(By.xpath("(//*[@class=\"title-link\"])[3]"));
+		
+		Thread.sleep(3000);
+		toMove(edu1);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click()",edu1);
+		Thread.sleep(5000);
+		
+	    
+	}
+
+	@When("user have to click edit profile Parent's Contact No:")
+	public void user_have_to_click_edit_profile_Parent_s_Contact_No() {
+		WebElement parno = driver.findElement(By.xpath("//*[@id=\"parentContact\"]"));
+		enteredTxt(parno);
+		parno.clear();
+		toInput(parno, "8126789876");
+		enteredTxt(parno);
+		
+	    
+	}
+
+	@When("user have to click edit profile  Family Value")
+	public void user_have_to_click_edit_profile_Family_Value() {
+		WebElement emp1 = driver.findElement(By.xpath("//*[@id=\"familyValue1\"]"));
+		boolean ab1 = emp1.isSelected();
+		if (ab1==true) {
+			WebElement empsib1 = driver.findElement(By.xpath("//*[@id=\"familyValue1\"]/following-sibling::*"));
+			String s1 = empsib1.getText();
+			System.out.println(s1);
+		} 
+		WebElement emp2 = driver.findElement(By.xpath("//*[@id=\"familyValue2\"]"));
+		boolean ab4 = emp2.isSelected();
+		if (ab4==true) {
+			WebElement empsib2 = driver.findElement(By.xpath("//*[@id=\"familyValue2\"]/following-sibling::*"));
+			String s2 = empsib2.getText();
+		System.out.println(s2);
+		} 
+		
+		WebElement emp3 = driver.findElement(By.xpath("//*[@id=\"familyValue3\"]"));
+		boolean ab2 = emp3.isSelected();
+		if (ab2==true) {
+			WebElement empsib3 = driver.findElement(By.xpath("//*[@id=\"familyValue3\"]/following-sibling::*"));
+			String s3 = empsib3.getText();
+			System.out.println(s3);
+		} 
+		WebElement emp4 = driver.findElement(By.xpath("//*[@id=\"familyValue4\"]"));
+		boolean ab5 = emp4.isSelected();
+		if (ab5==true) {
+			WebElement empsib4 = driver.findElement(By.xpath("//*[@id=\"familyValue4\"]/following-sibling::*"));
+			String s4 = empsib4.getText();
+			System.out.println(s4);
+		} 
+	    
+	}
+
+	@When("user have to click edit profile  Family Type")
+	public void user_have_to_click_edit_profile_Family_Type() {
+		WebElement fam1 = driver.findElement(By.xpath("//*[@id=\"familyType1\"]"));
+		boolean ab1 = fam1.isSelected();
+		if (ab1==true) {
+			WebElement famib1 = driver.findElement(By.xpath("//*[@id=\"familyType1\"]/following-sibling::*"));
+			String s1 = famib1.getText();
+			System.out.println(s1);
+		} 
+		WebElement fam2 = driver.findElement(By.xpath("//*[@id=\"familyType2\"]"));
+		boolean ab4 = fam2.isSelected();
+		if (ab4==true) {
+			WebElement famsib2 = driver.findElement(By.xpath("//*[@id=\"familyType2\"]/following-sibling::*"));
+			String s2 = famsib2.getText();
+		System.out.println(s2);
+		} 
+		
+		
+		
+	    
+	}
+
+	@When("user have to click edit profile  Family Status")
+	public void user_have_to_click_edit_profile_Family_Status() {
+		WebElement fams1 = driver.findElement(By.xpath("//*[@id=\"familyStatus1\"]"));
+		boolean ab1 = fams1.isSelected();
+		if (ab1==true) {
+			WebElement famsib1 = driver.findElement(By.xpath("//*[@id=\"familyStatus1\"]/following-sibling::*"));
+			String s1 = famsib1.getText();
+			System.out.println(s1);
+		} 
+		WebElement fams2 = driver.findElement(By.xpath("//*[@id=\"familyStatus2\"]"));
+		boolean ab4 = fams2.isSelected();
+		if (ab4==true) {
+			WebElement famssib2 = driver.findElement(By.xpath("//*[@id=\"familyStatus2\"]/following-sibling::*"));
+			String s2 = famssib2.getText();
+		System.out.println(s2);
+		} 
+		WebElement fams3 = driver.findElement(By.xpath("//*[@id=\"familyStatus4\"]"));
+		boolean ab2 = fams3.isSelected();
+		if (ab2==true) {
+			WebElement famssib3 = driver.findElement(By.xpath("//*[@id=\"familyStatus4\"]/following-sibling::*"));
+			String s3 = famssib3.getText();
+			System.out.println(s3);
+		}
+
+	    
+	}
+
+	@When("user have to click edit profile  Native Place")
+	public void user_have_to_click_edit_profile_Native_Place() {
+		WebElement nativ = driver.findElement(By.xpath("//*[@id=\"ancestralOrigin\"]"));
+		enteredTxt(nativ);
+		nativ.clear();
+		toInput(nativ, "chennai");
+		enteredTxt(nativ);
+		
+	    
+	}
+
+	@When("user have to click edit profile  Father's Occupation")
+	public void user_have_to_click_edit_profile_Father_s_Occupation() {
+		WebElement fo = driver.findElement(By.xpath("//*[@id=\"fatherOccupation\"]"));
+		enteredTxt(fo);
+		fo.clear();
+		toInput(fo, "truk driver");
+		enteredTxt(fo);
+
+		
+	    
+	}
+
+	@When("user have to click edit profile  Mother's Occupation")
+	public void user_have_to_click_edit_profile_Mother_s_Occupation() {
+		WebElement mo = driver.findElement(By.xpath("//*[@id=\"motherOccupation\"]"));
+		enteredTxt(mo);
+		mo.clear();
+		toInput(mo, "home queen");
+		enteredTxt(mo);
+	   
+	}
+
+	@When("user have to click edit profile  No. of Brothers")
+	public void user_have_to_click_edit_profile_No_of_Brothers() {
+		WebElement bro = driver.findElement(By.xpath("//*[@id=\"brothers\"]"));
+		firstSelected(bro);
+		selectIndex(bro, 2);
+	  firstSelected(bro);
+		
+	    
+	}
+
+	@When("user have to click edit profile  Brothers Married")
+	public void user_have_to_click_edit_profile_Brothers_Married() {
+		WebElement brom = driver.findElement(By.xpath("//*[@id=\"marriedBrothers\"]"));
+		firstSelected(brom);
+		selectIndex(brom, 2);
+	  firstSelected(brom);
+		
+	    
+	}
+
+	@When("user have to click edit profile  No. of Sisters")
+	public void user_have_to_click_edit_profile_No_of_Sisters() {
+		WebElement sis = driver.findElement(By.xpath("//*[@id=\"sisters\"]"));
+		firstSelected(sis);
+		selectIndex(sis, 2);
+	  firstSelected(sis);
+	    
+	}
+
+	@When("user have to click edit profile  Sisters Married")
+	public void user_have_to_click_edit_profile_Sisters_Married() {
+		WebElement sism = driver.findElement(By.xpath("//*[@id=\"marriedSisters\"]"));
+		firstSelected(sism);
+		selectIndex(sism, 1);
+	  firstSelected(sism);
+	    
+	}
+
+	@When("user have to click edit profile  About My Family")
+	public void user_have_to_click_edit_profile_About_My_Family() {
+		WebElement aboutfam = driver.findElement(By.xpath("//*[@id=\"motherOccupation\"]"));
+		enteredTxt(aboutfam);
+		aboutfam.clear();
+		toInput(aboutfam, "my family always great . joint family .have a two properties in villupuram");
+		enteredTxt(aboutfam);
+	
+	}
+
+	@When("user have to click edit profile Click hobbies and interest")
+	public void user_have_to_click_edit_profile_Click_hobbies_and_interest() throws Exception {
+WebElement edu1 = driver.findElement(By.xpath("(//*[@class=\"title-link\"])[4]"));
+		
+		Thread.sleep(3000);
+		toMove(edu1);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click()",edu1);
+		Thread.sleep(5000);
+	    
+	}
+
+	@When("user have to click edit profile  What are your Hobbies and Interest?")
+	public void user_have_to_click_edit_profile_What_are_your_Hobbies_and_Interest() {
+		WebElement emp = driver.findElement(By.xpath("//*[@id=\"hobbies4\"]"));
+		boolean ab3 = emp.isSelected();
+		if (ab3==true) {
+			
+WebElement empsib1 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[1]/span/label"));
+
+			
+			String s1 = empsib1.getText();
+			
+		System.out.println(s1);
+		} 
+		
+		WebElement emp1 = driver.findElement(By.xpath("//*[@id=\"hobbies6\"]"));
+		boolean ab1 = emp1.isSelected();
+		if (ab1==true) {
+WebElement empsib2 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[2]/span/label"));
+
+			
+			String s2 = empsib2.getText();	
+			System.out.println(s2);
+		} 
+		WebElement emp2 = driver.findElement(By.xpath("//*[@id=\"hobbies8\"]"));
+		boolean ab4 = emp2.isSelected();
+		if (ab4==true) {
+WebElement empsib3 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[3]/span/label"));
+
+			
+			String s3 = empsib3.getText();
+		System.out.println(s3);
+		} 
+		
+		WebElement emp3 = driver.findElement(By.xpath("//*[@id=\"hobbies11\"]"));
+		boolean ab2 = emp3.isSelected();
+		if (ab2==true) {
+			
+WebElement empsib4 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[4]/span/label"));
+
+			
+			String s4 = empsib4.getText();	
+			System.out.println(s4);
+		} 
+		WebElement emp4 = driver.findElement(By.xpath("//*[@id=\"hobbies13\"]"));
+		boolean ab5 = emp4.isSelected();
+		if (ab5==true) {
+WebElement empsib6 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[5]/span/label"));
+
+			
+			String s6 = empsib6.getText();
+		System.out.println("private"+s6);
+		} 
+		
+		WebElement emp6 = driver.findElement(By.xpath("//*[@id=\"hobbies15\"]"));
+		boolean ab6 = emp6.isSelected();
+		if (ab6==true) {
+WebElement empsib7 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[6]/span/label"));
+
+			
+			String s7 = empsib7.getText();
+			System.out.println(s7);
+		} 
+		WebElement emp8 = driver.findElement(By.xpath("//*[@id=\"hobbies17\"]"));
+		boolean ab8 = emp8.isSelected();
+		if (ab8==true) {
+			
+WebElement empsib8 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[7]/span/label"));
+
+			
+			String s8 = empsib8.getText();
+			
+		System.out.println(s8);
+		} 
+		
+		WebElement emp9 = driver.findElement(By.xpath("//*[@id=\"hobbies18\"]"));
+		boolean ab9 = emp9.isSelected();
+		if (ab1==true) {
+WebElement empsib9 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[8]/span/label"));
+
+			
+			String s9 = empsib9.getText();	
+			System.out.println(s9);
+		} 
+		WebElement emp10 = driver.findElement(By.xpath("//*[@id=\"hobbies19\"]"));
+		boolean ab10 = emp10.isSelected();
+		if (ab10==true) {
+WebElement empsib10 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[9]/span/label"));
+
+			
+			String s10 = empsib10.getText();
+		System.out.println(s10);
+		} 
+		
+		WebElement emp11 = driver.findElement(By.xpath("//*[@id=\"hobbies20\"]"));
+		boolean ab11 = emp11.isSelected();
+		if (ab11==true) {
+			
+WebElement empsib11 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[10]/span/label"));
+
+			
+			String s11 = empsib11.getText();	
+			System.out.println(s11);
+		} 
+		WebElement emp12 = driver.findElement(By.xpath("//*[@id=\"interest5\"]"));
+		boolean ab12 = emp12.isSelected();
+		if (ab12==true) {
+WebElement empsib12 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[11]/span/label"));
+
+			
+			String s12 = empsib12.getText();
+		System.out.println("private"+s12);
+		} 
+		
+		WebElement emp13 = driver.findElement(By.xpath("//*[@id=\"interest8\"]"));
+		boolean ab13 = emp13.isSelected();
+		if (ab13==true) {
+WebElement empsib13 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[12]/span/label"));
+
+			
+			String s13 = empsib13.getText();
+			System.out.println(s13);
+		} 
+		WebElement emp14 = driver.findElement(By.xpath("//*[@id=\"interest7\"]"));
+		boolean ab14 = emp14.isSelected();
+		if (ab14==true) {
+WebElement empsib14 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[13]/span/label"));
+
+			
+			String s14 = empsib14.getText();
+			System.out.println(s14);
+		} 
+		WebElement emp15 = driver.findElement(By.xpath("//*[@id=\"interest15\"]"));
+		boolean ab15 = emp15.isSelected();
+		if (ab15==true) {
+WebElement empsib15 = driver.findElement(By.xpath("//*[@id=\"frmHobbies\"]/div[3]/div[14]/span/label"));
+
+			
+			String s15 = empsib15.getText();
+			System.out.println(s15);
+		} 
+	    
+	}
+
+	@When("user have to click edit profile  Others")
+	public void user_have_to_click_edit_profile_Others() {
+	    
+	}
+
+	@When("user have to click edit profile  Your favourite music")
+	public void user_have_to_click_edit_profile_Your_favourite_music() {
+	    
+	}
+
+	@When("user have to click edit profile  Sports you like")
+	public void user_have_to_click_edit_profile_Sports_you_like() {
+	    
+	}
+
+	@When("user have to click edit profile  Your favourite food")
+	public void user_have_to_click_edit_profile_Your_favourite_food() {
+	  
+	}
+
+	@When("user have to click edit profile  save")
+	public void user_have_to_click_edit_profile_save1() {
+	    
+	}
+
+	@When("user have to click edit profile  edit partner preference")
+	public void user_have_to_click_edit_profile_edit_partner_preference() {
+	   
+	}
+
+	@When("user have to click edit profile partner preference  marital status")
+	public void user_have_to_click_edit_profile_partner_preference_marital_status() {
+	    
+	}
+
+	@When("user have to click edit profile partner preference  age")
+	public void user_have_to_click_edit_profile_partner_preference_age() {
+	    
+	}
+
+	@When("user have to click edit profile partner preference  height")
+	public void user_have_to_click_edit_profile_partner_preference_height() {
+	    
+	}
+
+	@When("user have to click edit profile partner preference physical status")
+	public void user_have_to_click_edit_profile_partner_preference_physical_status() {
+	    
+	}
+
+	@When("user have to click edit profile partner preference  mother tongue")
+	public void user_have_to_click_edit_profile_partner_preference_mother_tongue() {
+	  
+	}
+
+	@When("user have to click edit profile partner preference subcaste")
+	public void user_have_to_click_edit_profile_partner_preference_subcaste() {
+	    
+	}
+
+	@When("user have to click edit profile partner preference star")
+	public void user_have_to_click_edit_profile_partner_preference_star() {
+	    
+	}
+
+	@When("user have to click edit profile partner preference  chevvai dosham")
+	public void user_have_to_click_edit_profile_partner_preference_chevvai_dosham() {
+	    
+	    
+	}
+
+	@When("user have to click edit profile partner preference  educationm")
+	public void user_have_to_click_edit_profile_partner_preference_educationm() {
+	   
+	}
+
+	@When("user have to click edit profile partner preference employedIn")
+	public void user_have_to_click_edit_profile_partner_preference_employedIn() {
+	 
+	    
+	}
+
+	@When("user have to click edit profile partner preference occupation")
+	public void user_have_to_click_edit_profile_partner_preference_occupation() {
+	    
+	}
+
+	@When("user have to click edit profile partner preference citzenship")
+	public void user_have_to_click_edit_profile_partner_preference_citzenship() {
+	    
+	}
+
+	@When("user have to click edit profile partner preference country living")
+	public void user_have_to_click_edit_profile_partner_preference_country_living() {
+	    
+	}
+
+	@When("user have to click edit profile partner preference residing state in india")
+	public void user_have_to_click_edit_profile_partner_preference_residing_state_in_india() {
+	    
+	}
+
+	@When("user have to click edit profile partner preference  residing district")
+	public void user_have_to_click_edit_profile_partner_preference_residing_district() {
+	   
+	}
+
+	@When("user have to click edit profilepartner preference  food habits")
+	public void user_have_to_click_edit_profilepartner_preference_food_habits() {
+	   
+	}
+
+	@When("user have to click edit profile partner preference smoking habits")
+	public void user_have_to_click_edit_profile_partner_preference_smoking_habits() {
+
+	
+	}
+
+	@When("user have to click edit profile  partner preference drinking habits")
+	public void user_have_to_click_edit_profile_partner_preference_drinking_habits() {
+	   
+	}
+
+	@When("user have to click edit profile  partner preference annual income")
+	public void user_have_to_click_edit_profile_partner_preference_annual_income() {
+	   
+	}
+
+	@When("user have to click edit profile  partner preference about my partner")
+	public void user_have_to_click_edit_profile_partner_preference_about_my_partner() {
+	   
+	}
+
+	@When("user have to click edit profile  partner preference save")
+	public void user_have_to_click_edit_profile_partner_preference_save() {
+	   
+	}
+
+
 
 
 
