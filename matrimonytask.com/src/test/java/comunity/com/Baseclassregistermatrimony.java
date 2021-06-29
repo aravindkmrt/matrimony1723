@@ -121,6 +121,19 @@ public class Baseclassregistermatrimony {
 		ac.dragAndDrop(src, dest).perform();
 
 	}
+	public static void enable(WebElement element) {
+		boolean enabled = element.isEnabled();
+		System.out.println(enabled);
+	}
+	public static void display(WebElement element) {
+		boolean displayed = element.isDisplayed();
+		System.out.println(displayed);
+	}
+	public static void select(WebElement element) {
+		boolean select = element.isSelected();
+		System.out.println(select);
+	}
+
 
 	public static void alertAccept() {
 		al = driver.switchTo().alert();
@@ -204,10 +217,11 @@ public class Baseclassregistermatrimony {
 	}
 
 	public static void allSelectedOption(List<WebElement> element) {
-		s = new Select((WebElement) element);
-		List<WebElement> options = s.getOptions();
-		for (int i = 0; i < options.size(); i++) {
-			System.out.println(options.get(i).getText());
+		for(int i = 0; i<element.size(); i++){
+			
+			 
+		    System.out.println(element.get(i).getText());
+				
 
 		}
 
@@ -436,19 +450,38 @@ public class Baseclassregistermatrimony {
 		System.out.println(firstSelected1);
 
 	}
+	public static void firstSelectedto(WebElement element ,WebElement element1 ) {
+		Select s = new Select(element);
+		Select s1 = new Select(element1);
+		String firstSelected1 = s.getFirstSelectedOption().getText();
+		String firstselected2 = s1.getFirstSelectedOption().getText();
+		System.out.println(firstSelected1+"to"+firstselected2);
 
-	public static void writeDataFromExcel(int rowcount, int columncount, String Sheetname, String data) throws Throwable {
+	}
+	
+
+	public static void writeDataFromExcel() throws IOException {
 		
-			File f = new File("C:\\Users\\aravi\\eclipse-workspace\\matrimonytask.com\\Excel\\Matrimony.xlsx");
-
-			FileOutputStream out = new FileOutputStream(f);
-			Workbook w = new XSSFWorkbook();
-			Sheet sheet = w.createSheet(Sheetname);
+			File f = new File("D:\\testdata.xlsx");
+			FileInputStream filein = new FileInputStream(f);
+			Workbook w = new XSSFWorkbook(filein);
+			Sheet s = w.getSheet("sheet1");
+			s.getRow(1).getCell(1).setCellValue("aravind");
+			s.getRow(2).getCell(2).setCellValue("amirtha");
+			
+			FileOutputStream fileout = new FileOutputStream(f);
+			w.write(fileout);
+			fileout.close();
+			
+			
+			/*Workbook w = new XSSFWorkbook();
+			//Sheet sheet = w.createSheet(Sheetname);
 			Row row = sheet.createRow(rowcount);
 			Cell cell = row.createCell(columncount);
 			cell.setCellValue(data);
+			FileOutputStream out = new FileOutputStream(f);
 			w.write(out);
-			System.out.println("done");
+			System.out.println("done");*/
 
 		
 	}
