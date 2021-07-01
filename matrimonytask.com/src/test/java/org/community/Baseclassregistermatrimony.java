@@ -1,4 +1,4 @@
-package comunity.com;
+package org.community;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -14,18 +14,20 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
-
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -53,6 +55,9 @@ public class Baseclassregistermatrimony {
 	public static JavascriptExecutor js;
 	public static Select s;
 	public static ArrayList<String> a;
+	public static Row row;
+	public static Sheet sheet;
+	Cell cell;
 	//
 	// public static ExtentReports report;
 	// public static ExtentTest logger;
@@ -224,8 +229,17 @@ public class Baseclassregistermatrimony {
 				
 
 		}
-
 	}
+		public static void clickall(List<WebElement> element1) {
+			for (WebElement maritalStatus: element1 ) {
+				maritalStatus.click();
+				 String list = maritalStatus.getAttribute("value");
+				 System.out.println(list);
+				 }
+
+			}
+
+	
 
 	public String getValueFromDropDown(WebElement element, String compareText) {
 		List<WebElement> options = new Select(element).getAllSelectedOptions();
@@ -347,20 +361,22 @@ public class Baseclassregistermatrimony {
 		return rowNum;
 	}
 
-	// public static void setExcelData(String sheetName, int rowNum, int
-	// colNum,String data) throws Throwable{
-	// File f = new
-	// File("C:\\Users\\aravi\\eclipse-workspace\\matrimonytask.com\\Excel\\Matrimony.xlsx");
-	// FileInputStream fis = new FileInputStream(f);
-	// Workbook wb = new XSSFWorkbook(fis);
-	// Sheet sh = wb.getSheet(sheetName);
-	// Row row = sh.getRow(rowNum);
-	// Cell cel = row.createCell(colNum);
-	// cel.setCellValue(data);
-	// FileOutputStream fos = new FileOutputStream(f);
-	// wb.write(fos);
-	//// wb.close();
-	// }
+	 public static void setExcelData(String sheetName, int rowNum, int colNum,String data) throws Throwable{
+		 File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+			FileInputStream filein = new FileInputStream(f);
+			
+			Workbook w = new XSSFWorkbook(filein);
+			Sheet sheet = w.getSheet(sheetName);
+			Row row = sheet.getRow(rowNum);
+			Cell cell = row.getCell(colNum);
+			cell.setCellValue(data);
+			
+			
+			FileOutputStream fileout = new FileOutputStream(f);
+			w.write(fileout);
+			fileout.close();
+			System.out.println("done");
+	 }
 	public static int getRowCount(String sheetName) throws Throwable {
 		FileInputStream fis = new FileInputStream(
 				"C:\\Users\\aravi\\eclipse-workspace\\matrimonytask.com\\Excel\\Matrimony.xlsx");
@@ -440,7 +456,37 @@ public class Baseclassregistermatrimony {
 		return mapDatasList;
 
 	}
+	public void writeData(String GroupID) throws Throwable {
+		   
+		          File src = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		          Cell cell = null;
+		          FileInputStream fis = new FileInputStream(src);
+		          XSSFWorkbook wb = new XSSFWorkbook(fis);
+		          Sheet sheet = wb.getSheet("Details");
 
+		          for (int i = 1; i < 12; i++) {
+		             System.out.println("Entering into excel sheet");
+		             cell = sheet.getRow(i).getCell(22);
+		             System.out.println("Iterating cells");
+
+		             if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+		                String str = NumberToTextConverter.toText(cell.getNumericCellValue());
+		                System.out.println("**********Before Replacing**********");
+		                System.out.println(str);
+		                cell.setCellValue(GroupID);
+		             } else {
+		                       System.out.println("We are not entering  numeric data");
+		             }
+		        }
+		        FileOutputStream fout = new FileOutputStream(new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx"));
+		        wb.write(fout);
+		        fout.close();
+
+	
+	}
+	
+	
+	
 	public static void firstSelected(WebElement element) {
 		s = new Select(element);
 		// WebElement firstSelected = s.getFirstSelectedOption();
@@ -460,204 +506,141 @@ public class Baseclassregistermatrimony {
 	}
 	
 
-	public static void writeDataFromExcel() throws IOException {
+	public static void writeDataFromExcelfirstselected(WebElement element,String sheetName, int rowNum, int colNum) throws IOException {
+		s = new Select(element);
 		
-			File f = new File("D:\\testdata.xlsx");
-			FileInputStream filein = new FileInputStream(f);
-			Workbook w = new XSSFWorkbook(filein);
-			Sheet s = w.getSheet("sheet1");
-			s.getRow(1).getCell(1).setCellValue("aravind");
-			s.getRow(2).getCell(2).setCellValue("amirtha");
-			
-			FileOutputStream fileout = new FileOutputStream(f);
-			w.write(fileout);
-			fileout.close();
-			
-			
-			/*Workbook w = new XSSFWorkbook();
-			//Sheet sheet = w.createSheet(Sheetname);
-			Row row = sheet.createRow(rowcount);
-			Cell cell = row.createCell(columncount);
-			cell.setCellValue(data);
-			FileOutputStream out = new FileOutputStream(f);
-			w.write(out);
-			System.out.println("done");*/
+		String firstSelected1 = s.getFirstSelectedOption().getText();
 
 		
+		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		FileInputStream filein = new FileInputStream(f);
+		
+		Workbook w = new XSSFWorkbook(filein);
+		Sheet sheet = w.getSheet(sheetName);
+		Row row = sheet.getRow(rowNum);
+		Cell cell = row.getCell(colNum);
+		cell.setCellValue(firstSelected1);
+		
+		
+		FileOutputStream fileout = new FileOutputStream(f);
+		w.write(fileout);
+		fileout.close();
+		System.out.println("done");
+		
+	}
+	public static void writeDataFromExcelenteredtxt(WebElement element, String sheetName, int rowNum, int colNum) throws IOException {
+		String attribute = element.getAttribute("value");
+	
+		
+
+		
+		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		FileInputStream filein = new FileInputStream(f);
+		
+		Workbook w = new XSSFWorkbook(filein);
+		Sheet sheet = w.getSheet(sheetName);
+		Row row = sheet.getRow(rowNum);
+		Cell cell = row.getCell(colNum);
+		cell.setCellValue(attribute);
+		
+		
+		FileOutputStream fileout = new FileOutputStream(f);
+		w.write(fileout);
+		fileout.close();
+		System.out.println("done");
+		
+		
+	}
+	public static void writeDataFromExcelselecteddtxt(WebElement element, String sheetName, int rowNum, int colNum) throws IOException {
+		String s1 = element.getText();
+		
+	
+		
+
+		
+		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		FileInputStream filein = new FileInputStream(f);
+		
+		Workbook w = new XSSFWorkbook(filein);
+		Sheet sheet = w.getSheet(sheetName);
+		
+		row = sheet.getRow(rowNum);
+		Cell cell = row.getCell(colNum);
+		cell.setCellValue(s1);
+		
+		
+		FileOutputStream fileout = new FileOutputStream(f);
+		w.write(fileout);
+		fileout.close();
+		System.out.println("done");
+		
+		
+	}
+	public static String printTxt(List<WebElement> li, int i) {
+		return (li.get(i).getText());
+//		 li.get(i).getAttribute("innerHTML");
+}
+	public static void createExcel(String sheetName, String cellValue, int rowNo, int cellNo) throws IOException {
+		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\aravind.xlsx");
+		Workbook workbook = new XSSFWorkbook();
+		Sheet newSheet = workbook.createSheet(sheetName);
+		Row newRow = newSheet.createRow(rowNo);
+		Cell newCell = newRow.createCell(cellNo);
+		newCell.setCellValue(cellValue);
+		FileOutputStream fos = new FileOutputStream(f);
+		workbook.write(fos);
+	}
+	public static void writeExcel(String sheetName, int rowNo, int cellNo, String cellValue) throws IOException {
+		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\aravind.xlsx");
+		FileInputStream fis = new FileInputStream(f);
+		Workbook workbook = new XSSFWorkbook(fis);
+		Sheet sheet = workbook.getSheet(sheetName);
+		Row row = sheet.createRow(rowNo);
+		Cell createCell = row.createCell(cellNo);
+		createCell.setCellValue(cellValue);
+		FileOutputStream fos = new FileOutputStream(f);
+		workbook.write(fos);
+
 	}
 
-	/////////////////////////// SMS CODE ////////////////////////////////////////
-	public static void sendVFSms1() throws Exception {
-		String message = "PASS : CBS-Login-Desktop-Adyar,Chennai";
-		String mobileno = "918098882244,916302165648,";
-		String[] s = mobileno.split(",");
-		for (int i = 0; i < s.length; i++) {
-
-			String url = "http://api.myvaluefirst.com/psms/servlet/psms.Eservice2";
-			URL obj = new URL(url);
-			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-
-			// add reuqest header
-			con.setRequestMethod("POST");
-			// con.setRequestProperty("User-Agent", USER_AGENT);
-			con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
-
-			String urlParameters = "data=<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><!DOCTYPE MESSAGE SYSTEM \"http://127.0.0.1/psms/dtd/message.dtd\" ><MESSAGE><USER USERNAME=\"matrimony2\" PASSWORD=\"matrimony02\"/><SMS UDH=\"0\" CODING=\"1\" TEXT=\""
-					+ message + "\" PROPERTY=\"0\" ID=\"1\"><ADDRESS FROM=\"CMATRI\" TO=\"" + s[i]
-					+ "\" SEQ=\"1\" TAG=\"some clientside random data\" /></SMS></MESSAGE>&action=send";
-
-			// Send post request
-			con.setDoOutput(true);
-			DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-			wr.writeBytes(urlParameters);
-			wr.flush();
-			wr.close();
-
-			int responseCode = con.getResponseCode();
-			System.out.println("\nSending 'POST' request to URL : " + url);
-			System.out.println("Post parameters : " + urlParameters);
-			System.out.println("Response Code : " + responseCode);
-
-			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-			String inputLine;
-			StringBuffer response = new StringBuffer();
-
-			while ((inputLine = in.readLine()) != null) {
-				response.append(inputLine);
-			}
-			in.close();
-
-			// print result
-			System.out.println(response.toString());
-
+	
+	
+	
+		
+	public static void excelwrite(List<WebElement> element, String sheetName, int rowNum, int colNum) throws Throwable {
+		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		FileInputStream filein = new FileInputStream(f);
+		
+		Workbook w = new XSSFWorkbook(filein);
+		Sheet sheet = w.getSheet(sheetName);
+		int j = colNum;
+		for (int i = rowNum; i < element.size(); i++) {
+j=i-1;
+Row newrow = sheet.getRow(i);
+Cell cell = newrow.getCell(j);
+String s3 = element.get(i).getText();
+cell.setCellValue(s3);
+cell = newrow.createCell(1);
+String s4 = element.get(i).getText();
+cell.setCellValue(s4);
+cell = newrow.createCell(2);
+String s5 = element.get(i).getText();
+cell.setCellValue(s5);
+cell = newrow.createCell(3);
+String s6 = element.get(i).getText();
+cell.setCellValue(s6);
+		
 		}
-	}
-
-	public static void sendVFSms() throws Exception {
-		String message = "FAIL : CBS_Login-Desktop-Adyar,Chennai";
-
-		String mobileno = "918098882244,916302165648";
-		String[] s = mobileno.split(",");
-		for (int i = 0; i < s.length; i++) {
-			String url = "http://api.myvaluefirst.com/psms/servlet/psms.Eservice2";
-			URL obj = new URL(url);
-			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-
-			// add reuqest header
-			con.setRequestMethod("POST");
-			// con.setRequestProperty("User-Agent", USER_AGENT);
-			con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
-
-			String urlParameters = "data=<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><!DOCTYPE MESSAGE SYSTEM \"http://127.0.0.1/psms/dtd/message.dtd\" ><MESSAGE><USER USERNAME=\"matrimony2\" PASSWORD=\"matrimony02\"/><SMS UDH=\"0\" CODING=\"1\" TEXT=\""
-					+ message + "\" PROPERTY=\"0\" ID=\"1\"><ADDRESS FROM=\"CMATRI\" TO=\"" + s[i]
-					+ "\" SEQ=\"1\" TAG=\"some clientside random data\" /></SMS></MESSAGE>&action=send";
-
-			// Send post request
-			con.setDoOutput(true);
-			DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-			wr.writeBytes(urlParameters);
-			wr.flush();
-			wr.close();
-
-			int responseCode = con.getResponseCode();
-			System.out.println("\nSending 'POST' request to URL : " + url);
-			System.out.println("Post parameters : " + urlParameters);
-			System.out.println("Response Code : " + responseCode);
-
-			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-			String inputLine;
-			StringBuffer response = new StringBuffer();
-
-			while ((inputLine = in.readLine()) != null) {
-				response.append(inputLine);
-			}
-			in.close();
-
-			// print result
-			System.out.println(response.toString());
-
+		
+			
+		FileOutputStream fileout = new FileOutputStream(f);
+		w.write(fileout);
+		fileout.close();
+		System.out.println("done");
+		
 		}
-	}
-
-	///////////////////////////// Mail ////////////
-
-	// public static void reportflush()
-	// {
-	// report.flush();
-	// final String username = "mohantest.mm@gmail.com";
-	// final String password = "mohanmmteam";
-	//
-	// Properties props = new Properties();
-	// props.put("mail.smtp.auth", true);
-	// props.put("mail.smtp.starttls.enable", true);
-	// props.put("mail.smtp.host", "smtp.gmail.com");
-	// props.put("mail.smtp.port", "587");
-	//
-	// Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-	// protected PasswordAuthentication getPasswordAuthentication() {
-	// return new PasswordAuthentication(username, password);
-	// }
-	// });
-	// Message message = new MimeMessage(session);
-	//
-	// try {
-	//
-	// message.setFrom(new InternetAddress("mohantest.mm@gmail.com"));
-	//
-	// message.setSubject("CBS Desktop Automation Report "); /// Global Module
-	// Content
-	//
-	// message.setRecipients(Message.RecipientType.TO,
-	// InternetAddress.parse("cbsautomationreport@gmail.com")); // Add Email Address
-	// To Whom Mail Need to be Send
-	//// ,thanikachalam.thirunanasambandan@matrimony.com
-	// Multipart multipart = new MimeMultipart();
-	//
-	// MimeBodyPart messageBodyPart = new MimeBodyPart();
-	// messageBodyPart.setText("CBS Automation Report");
-	// MimeBodyPart attachmentBodyPart = new MimeBodyPart();
-	//
-	//
-	// String file = "C:\\Users\\CBS
-	// Testing\\workspace\\Niresh\\Nepali2\\Report.html";
-	//// HtMALReport File Bath --- EXtent Report
-	// String fileName = "CBS-AutomationReport-Desktop"; // Change CBS to Global or
-	// Individual Domain
-	// DataSource source = new FileDataSource(file);
-	//// messageBodyPart.setDataHandler(new DataHandler(source));
-	// attachmentBodyPart.setDataHandler(new DataHandler(source));
-	// attachmentBodyPart.setFileName("Report.html");
-	//
-	//
-	// multipart.addBodyPart(messageBodyPart);
-	// multipart.addBodyPart(attachmentBodyPart);
-	//
-	// message.setContent(multipart);
-	//
-	// System.out.println("Sending....");
-	//
-	// Transport.send(message);
-	//
-	// System.out.println("Mail Sent Successfully");
-	//
-	// } catch (MessagingException e) {
-	// e.printStackTrace();
-	// }
-
-	// }
-
-	@BeforeSuite
-	public void htmlReport() {
-
-		// extent = new
-		// ExtentHtmlReporter("C:\\Users\\amuthan\\eclipse-workspace\\com.mobile\\ScreenShot");
-
-		// report=new ExtentReports("C:\\Users\\CBS
-		// Testing\\workspace\\Niresh\\Nepali2\\Report\\"+html,true);
-		// report.loadConfig(new File("C:\\Users\\CBS
-		// Testing\\workspace\\Niresh\\Nepali2\\extent-config.xml"));
-		//// test=reports.startTest("Android Registeration Test");
-
-	}
+		
+	
+	
 
 }

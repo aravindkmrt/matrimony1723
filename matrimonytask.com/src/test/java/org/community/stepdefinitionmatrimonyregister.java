@@ -1,31 +1,45 @@
-package comunity.com;
+package org.community;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+
+import org.apache.poi.util.SystemOutLogger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.util.SystemOutLogger;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.pojo.Pojom;
+
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony {
+	Pojom pj;
 	@Given("user have to enter into comunity matrimony page")
 	public void user_have_to_enter_into_comunity_matrimony_page() {
 		launchBrowser();
 
 	}
 
+	
 	@When("user have to select the community site")
 	public void user_have_to_select_the_community_site() throws InterruptedException {
 		loadUrl("https://www.communitymatrimony.com/");
@@ -618,43 +632,39 @@ public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony 
 	}
 
 	// login module
-
 	@When("user have to enter the login url")
-	public void user_have_to_enter_the_login_url() throws Exception {
-
+	public void user_have_to_enter_the_login_url() throws Throwable {
 		loadUrl("https://www.communitymatrimony.com/login/");
 		Thread.sleep(4000);
 
+	    
 	}
-
 	@When("user have to enter valid username and password")
 	public void user_have_to_enter_valid_username_and_password() {
-
 		driver.findElement(By.xpath("//*[@id='idEmail']")).sendKeys("Aravindkmrt@gmail.com");
 		WebElement pass = driver.findElement(By.xpath("//*[@id='password']"));
 		JavascriptExecutor j = (JavascriptExecutor) driver;
 		j.executeScript("arguments[0].setAttribute('value','Aravind1723')", pass);
-
+	   
 	}
-
 	@When("user have to click the submit button")
 	public void user_have_to_click_the_submit_button() {
-		driver.findElement(By.xpath("(//*[@value='Login'])[2]")).click();
-
+		driver.findElement(By.xpath("(//*[@value='Login'])[2]")).click();  
 	}
 
 	@When("user have to enter skip")
-	public void user_have_to_enter_skip() throws InterruptedException {
+	public void user_have_to_enter_skip() throws Throwable {
 		Thread.sleep(5000);
-	
+		
 
 		driver.findElement(By.xpath("//*[@href=\"https://www.vanniyarmatrimony.com/myhome/index.php/?promo=yes\"]")).click();
 		Thread.sleep(5000);
 
 		driver.findElement(By.xpath("//*[@alt='close']")).click();
 		Thread.sleep(5000);
-
+	   
 	}
+	
 
 	@When("user have to click profile")
 	public void user_have_to_click_profile() {
@@ -662,51 +672,63 @@ public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony 
 		toMove(w12);
 
 	}
-
+	
 	@When("user have to click edit profile")
 	public void user_have_to_click_edit_profile() {
 		driver.findElement(By.xpath("//*[@class='settings-editprofile']")).click();
-
-	}
-
+	    	}
 	@When("user have to click edit profile created by")
 	public void user_have_to_click_edit_profile_created_by() throws Throwable {
 		WebElement get1 = driver.findElement(By.xpath("//*[@id=\"createdfor\"]"));
 		firstSelected(get1);
-
+		writeDataFromExcelfirstselected(get1, "aravind", 1, 2);
 		selectIndex(get1, 2);
 		firstSelected(get1);
+		writeDataFromExcelfirstselected(get1, "aravind", 2, 2);
 	}
 
+	
 	@When("user have to click edit profile name")
-	public void user_have_to_click_edit_profile_name() {
+	public void user_have_to_click_edit_profile_name() throws IOException {
 		WebElement get2 = driver.findElement(By.xpath("//*[@id=\"name\"]"));
 		enteredTxt(get2);
+		writeDataFromExcelenteredtxt(get2, "aravind", 1, 3);
 		get2.clear();
 		toInput(get2, "manoj");
 		enteredTxt(get2);
+		writeDataFromExcelenteredtxt(get2, "aravind",2, 3);
 
 	}
 
 	@When("user have to click edit profile date of birth")
-	public void user_have_to_click_edit_profile_date_of_birth() {
+	public void user_have_to_click_edit_profile_date_of_birth() throws IOException {
 		WebElement get3 = driver.findElement(By.xpath("//*[@id=\"dobDay\"]"));
 		firstSelected(get3);
+		writeDataFromExcelfirstselected(get3, "aravind", 1, 4);
+		
 		selectIndex(get3, 3);
 		firstSelected(get3);
+		writeDataFromExcelfirstselected(get3, "aravind", 2, 4);
 		WebElement get4 = driver.findElement(By.xpath("//*[@id=\"dobMonth\"]"));
 		firstSelected(get4);
+		writeDataFromExcelfirstselected(get4, "aravind", 1, 5);
 		selectIndex(get4, 4);
+		firstSelected(get4);
+		writeDataFromExcelfirstselected(get4, "aravind", 2, 5);
 		WebElement get5 = driver.findElement(By.xpath("//*[@id=\"dobYear\"]"));
 		firstSelected(get5);
+		writeDataFromExcelfirstselected(get5, "aravind", 1, 6);
 		selectValue(get5, "1998");
+		writeDataFromExcelfirstselected(get5, "aravind", 2, 6);
 
 	}
 
 	@When("user have to click edit profile marital status")
-	public void user_have_to_click_edit_profile_marital_status() {
-		// List<WebElement> radios =
-		// driver.findElements(By.xpath("//*[@name=\"maritalStatus\"]"));
+	public void user_have_to_click_edit_profile_marital_status() throws Throwable {
+//		List<WebElement> radios =
+//		driver.findElements(By.xpath("//*[@name=\"maritalStatus\"]"));
+//		
+//		 clickall(radios);
 		WebElement bol1 = driver.findElement(By.xpath("//*[@id='maritalStatus1']"));
 
 		boolean ab1 = bol1.isSelected();
@@ -715,15 +737,24 @@ public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony 
 
 			String s1 = bolsib1.getText();
 			System.out.println(s1);
+			writeDataFromExcelselecteddtxt(bolsib1, "aravind", 1, 7);
+		}
+		else
+		{
+			setExcelData("aravind", 1, 7, "no");
 		}
 
 		WebElement bol2 = driver.findElement(By.xpath("//*[@id='maritalStatus2']"));
-		toClick(bol2);
+		
 		boolean ab2 = bol2.isSelected();
 		if (ab2 == true) {
 			WebElement bolsib2 = driver.findElement(By.xpath("//*[@id='maritalStatus2']/following-sibling::*"));
 			String s2 = bolsib2.getText();
 			System.out.println(s2);
+			writeDataFromExcelselecteddtxt(bol2, "aravind", 1, 8);
+		}
+		else {
+			setExcelData("aravind", 1, 8, "no");
 		}
 
 		WebElement bol3 = driver.findElement(By.xpath("//*[@id='maritalStatus3']"));
@@ -732,36 +763,106 @@ public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony 
 			WebElement bolsib3 = driver.findElement(By.xpath("//*[@id='maritalStatus3']/following-sibling::*"));
 			String s3 = bolsib3.getText();
 			System.out.println(s3);
+			writeDataFromExcelselecteddtxt(bol3, "aravind", 1, 9);
 		}
-
+		else {
+			setExcelData("aravind", 1, 9, "no");
+		}
 		WebElement bol4 = driver.findElement(By.xpath("//*[@id='maritalStatus4']"));
 		boolean ab4 = bol4.isSelected();
 		if (ab4 == true) {
 			WebElement bolsib4 = driver.findElement(By.xpath("//*[@id='maritalStatus4']/following-sibling::*"));
 			String s4 = bolsib4.getText();
 			System.out.println(s4);
+			writeDataFromExcelselecteddtxt(bol4, "aravind", 1, 10);
+		}
+		else {
+			setExcelData("aravind", 1, 10, "no");
 		}
 
-		// for (WebElement maritalStatus: radios ) {
-		// radios.
-		// System.out.println(maritalStatus.getAttribute("value"));
+		
 
+	}
+	@When("user have to click edit profile marital status edit")
+	public void user_have_to_click_edit_profile_marital_status_edit() throws Throwable {
+		WebElement bol1 = driver.findElement(By.xpath("//*[@id='maritalStatus2']"));
+		toClick(bol1);
+
+		boolean ab1 = bol1.isSelected();
+		if (ab1 == true) {
+			WebElement bolsib1 = driver.findElement(By.xpath("//*[@id='maritalStatus2']/following-sibling::*"));
+
+			String s1 = bolsib1.getText();
+			System.out.println(s1);
+			writeDataFromExcelselecteddtxt(bolsib1, "aravind", 2, 7);
+		}
+		else
+		{
+			setExcelData("aravind", 2, 7, "no");
+		}
+
+		WebElement bol2 = driver.findElement(By.xpath("//*[@id='maritalStatus1']"));
+		
+		
+		boolean ab2 = bol2.isSelected();
+		if (ab2 == true) {
+			WebElement bolsib2 = driver.findElement(By.xpath("//*[@id='maritalStatus1']/following-sibling::*"));
+			String s2 = bolsib2.getText();
+			System.out.println(s2);
+			writeDataFromExcelselecteddtxt(bol2, "aravind", 2, 8);
+		}
+		else
+		{
+			setExcelData("aravind", 2, 8, "no");
+		}
+
+		WebElement bol3 = driver.findElement(By.xpath("//*[@id='maritalStatus3']"));
+		boolean ab3 = bol3.isSelected();
+		if (ab3 == true) {
+			WebElement bolsib3 = driver.findElement(By.xpath("//*[@id='maritalStatus3']/following-sibling::*"));
+			String s3 = bolsib3.getText();
+			System.out.println(s3);
+			writeDataFromExcelselecteddtxt(bol3, "aravind", 2, 9);
+			
+		}
+		else {
+			setExcelData("aravind", 2, 9, "no");
+		}
+		WebElement bol4 = driver.findElement(By.xpath("//*[@id='maritalStatus4']"));
+		boolean ab4 = bol4.isSelected();
+		if (ab4 == true) {
+			WebElement bolsib4 = driver.findElement(By.xpath("//*[@id='maritalStatus4']/following-sibling::*"));
+			String s4 = bolsib4.getText();
+			System.out.println(s4);
+			writeDataFromExcelselecteddtxt(bol4, "aravind", 2, 10);
+		}
+		else {
+			setExcelData("aravind", 2, 10, "no");
+		}
+		
+
+	    
 	}
 
 	@When("user have to click edit profile height")
-	public void user_have_to_click_edit_profile_height() {
+	public void user_have_to_click_edit_profile_height() throws IOException {
 		WebElement get7 = driver.findElement(By.xpath("//*[@id=\"heightFeet\"]"));
 		firstSelected(get7);
+		writeDataFromExcelfirstselected(get7, "aravind", 1,11);
 		selectValue(get7, "4 feet");
 		firstSelected(get7);
+		writeDataFromExcelfirstselected(get7, "aravind", 2, 11);
 
 	}
 
 	@When("user have to click edit profile weight")
-	public void user_have_to_click_edit_profile_weight() {
+	public void user_have_to_click_edit_profile_weight() throws IOException {
 		WebElement get8 = driver.findElement(By.xpath("//*[@id=\"weightKgs\"]"));
 		firstSelected(get8);
+		writeDataFromExcelfirstselected(get8, "aravind", 1, 12);
 		selectIndex(get8, 9);
+		firstSelected(get8);
+		writeDataFromExcelfirstselected(get8, "aravind", 2, 12);
 	}
 
 	@When("user have to click edit profile physical status")
@@ -786,6 +887,10 @@ public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony 
 		}
 
 	}
+	@When("user have to click edit profile physical status edit")
+	public void user_have_to_click_edit_profile_physical_status_edit() {
+	   
+	}
 
 	@When("user have to click edit profile subcaste")
 	public void user_have_to_click_edit_profile_subcaste() {
@@ -806,22 +911,35 @@ public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony 
 	}
 
 	@When("user have to click edit profile languages known")
-	public void user_have_to_click_edit_profile_languages_known() {
-		List<WebElement> radios = driver.findElements(By.xpath("//*[@id=\"spokenLanguages\"]"));
-		for (int i = 0; i < radios.size(); i++) {
+	public void user_have_to_click_edit_profile_languages_known() throws IOException  {
 
-			System.out.println(radios.get(i).getText());
-			System.out.println(radios.get(i).getAttribute("value"));
+//			Pojom pj = new Pojom();
+//		PageFactory.initElements(driver, Pojom.class);
+//			int j = 0;
+//			
+//			for (int i = 1; i < pj.getSpoken().size(); i++) {
+//				createExcel("spoken", "list", 0, 0);	
+//				writeExcel("spoken", i, j, printTxt(pj.getSpoken(),i));
+//				System.out.println(printTxt(pj.getSpoken(),i));
+//				
+//			}
+//	        System.out.println("Done!");
+//		
+			
+		
+			
 		}
-		WebElement lang = driver.findElement(By.xpath("//*[@id=\"spokenLanguagesTemp\"]"));
-		selectIndex(lang, 5);
-		for (int j = 0; j < radios.size(); j++) {
+//		WebElement lang = driver.findElement(By.xpath("//*[@id=\"spokenLanguagesTemp\"]"));
+//		selectIndex(lang, 5);
+//		for (int j = 0; j < radios.size(); j++) {
+//
+//			System.out.println(radios.get(j).getText());
+//			String string1 = radios.get(j).getAttribute("value");
+//			System.out.println(string1);
+//			
+//		}
 
-			System.out.println(radios.get(j).getText());
-			System.out.println(radios.get(j).getAttribute("value"));
-		}
-
-	}
+	
 
 	@When("user have to click edit profile gothra")
 	public void user_have_to_click_edit_profile_gothra() {
@@ -1325,6 +1443,7 @@ public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony 
 
 	@When("user have to click edit profile  What are your Hobbies and Interest?")
 	public void user_have_to_click_edit_profile_What_are_your_Hobbies_and_Interest() {
+		
 		WebElement emp = driver.findElement(By.xpath("//*[@id=\"hobbies4\"]"));
 		boolean ab3 = emp.isSelected();
 		if (ab3 == true) {
@@ -2187,3 +2306,4 @@ public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony 
 	}
 
 }
+

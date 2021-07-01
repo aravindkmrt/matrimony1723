@@ -121,11 +121,15 @@ And user have to click edit profile date of birth
 
 And user have to click edit profile marital status
 
+And user have to click edit profile marital status edit
+
 And user have to click edit profile height
 
 And user have to click edit profile weight
 
 And user have to click edit profile physical status
+
+And user have to click edit profile physical status edit
 
 And user have to click edit profile subcaste
 
