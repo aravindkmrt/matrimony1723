@@ -1,5 +1,8 @@
 package org.community;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -97,8 +100,14 @@ public class Baseclassregistermatrimony {
 
 	public static String enteredTxt(WebElement element) {
 		String attribute = element.getAttribute("value");
-		System.out.println(attribute);
+		System.out.println(" : "+attribute);
 		return attribute;
+
+	}
+	public static String Txt(WebElement element) {
+		String s1 = element.getText();
+		System.out.print(s1);
+		return s1;
 
 	}
 
@@ -225,7 +234,7 @@ public class Baseclassregistermatrimony {
 		for(int i = 0; i<element.size(); i++){
 			
 			 
-		    System.out.println(element.get(i).getText());
+		    String s3 = element.get(i).getText();
 				
 
 		}
@@ -239,8 +248,21 @@ public class Baseclassregistermatrimony {
 
 			}
 
-	
-
+		public static void btnClick(WebElement element) throws Exception {
+			Thread.sleep(5000);
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("arguments[0].click()", element);
+		}
+		
+		public static void alertAccept1() throws AWTException {
+			
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_ESCAPE);
+			robot.keyRelease(KeyEvent.VK_ESCAPE);
+//			robot.keyPress(KeyEvent.VK_ENTER);
+//			robot.keyRelease(KeyEvent.VK_ENTER);
+		}
+		
 	public String getValueFromDropDown(WebElement element, String compareText) {
 		List<WebElement> options = new Select(element).getAllSelectedOptions();
 		for (WebElement option : options) {
@@ -337,7 +359,7 @@ public class Baseclassregistermatrimony {
 		Sheet sh = wb.getSheet(sheetName);
 		Row row = sh.getRow(rowNum);
 		int data1 = (int) row.getCell(colNum).getNumericCellValue();
-		// wb.close();
+		//wb.close();
 		return data1;
 	}
 
@@ -375,7 +397,7 @@ public class Baseclassregistermatrimony {
 			FileOutputStream fileout = new FileOutputStream(f);
 			w.write(fileout);
 			fileout.close();
-			System.out.println("done");
+			
 	 }
 	public static int getRowCount(String sheetName) throws Throwable {
 		FileInputStream fis = new FileInputStream(
@@ -493,7 +515,16 @@ public class Baseclassregistermatrimony {
 		// System.out.println(firstSelected);
 		String firstSelected1 = s.getFirstSelectedOption().getText();
 
-		System.out.println(firstSelected1);
+		System.out.println(" : "+firstSelected1);
+
+	}
+	public static void firstSelecteddob(WebElement element, String value) {
+		s = new Select(element);
+		// WebElement firstSelected = s.getFirstSelectedOption();
+		// System.out.println(firstSelected);
+		String firstSelected1 = s.getFirstSelectedOption().getText();
+
+		System.out.println(value+ " : "+firstSelected1);
 
 	}
 	public static void firstSelectedto(WebElement element ,WebElement element1 ) {
@@ -504,7 +535,84 @@ public class Baseclassregistermatrimony {
 		System.out.println(firstSelected1+"to"+firstselected2);
 
 	}
-	
+	public static String Txtexcel(WebElement element,String sheetName, int rowNum, int colNum) throws Throwable {
+		String s1 = element.getText();
+		System.out.print(s1);
+		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		FileInputStream filein = new FileInputStream(f);
+		
+		Workbook w = new XSSFWorkbook(filein);
+		Sheet sheet = w.getSheet(sheetName);
+		Row row = sheet.getRow(rowNum);
+		Cell cell = row.getCell(colNum);
+		cell.setCellValue(s1);
+		
+		
+		FileOutputStream fileout = new FileOutputStream(f);
+		w.write(fileout);
+		fileout.close();
+		return s1;
+
+	}
+	public static String ppeditexcel(WebElement element,String sheetName, int rowNum, int colNum) throws Throwable {
+		String s1 = element.getText();
+		System.out.println(":"+s1);
+		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		FileInputStream filein = new FileInputStream(f);
+		
+		Workbook w = new XSSFWorkbook(filein);
+		Sheet sheet = w.getSheet(sheetName);
+		Row row = sheet.getRow(rowNum);
+		Cell cell = row.getCell(colNum);
+		cell.setCellValue(s1);
+		
+		
+		FileOutputStream fileout = new FileOutputStream(f);
+		w.write(fileout);
+		fileout.close();
+		return s1;
+
+	}
+	public static String Txtexcel1(WebElement element,String sheetName, int rowNum, int colNum) throws Throwable {
+		String s1 = element.getText();
+		System.out.print(s1);
+		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		FileInputStream filein = new FileInputStream(f);
+		
+		Workbook w = new XSSFWorkbook(filein);
+		Sheet sheet = w.getSheet(sheetName);
+		Row row = sheet.getRow(rowNum);
+		Cell cell = row.getCell(colNum);
+		cell.setCellValue(s1);
+		
+		
+		FileOutputStream fileout = new FileOutputStream(f);
+		w.write(fileout);
+		fileout.close();
+		return s1;
+
+	}
+	public static String ppeditexcel1(WebElement element,String sheetName, int rowNum, int colNum) throws Throwable {
+		String s1 = element.getText();
+		System.out.print(":"+s1);
+		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		FileInputStream filein = new FileInputStream(f);
+		
+		Workbook w = new XSSFWorkbook(filein);
+		Sheet sheet = w.getSheet(sheetName);
+		Row row = sheet.getRow(rowNum);
+		Cell cell = row.getCell(colNum);
+		cell.setCellValue(s1);
+		
+		
+		FileOutputStream fileout = new FileOutputStream(f);
+		w.write(fileout);
+		fileout.close();
+		return s1;
+
+	}
+
+
 
 	public static void writeDataFromExcelfirstselected(WebElement element,String sheetName, int rowNum, int colNum) throws IOException {
 		s = new Select(element);
@@ -525,7 +633,7 @@ public class Baseclassregistermatrimony {
 		FileOutputStream fileout = new FileOutputStream(f);
 		w.write(fileout);
 		fileout.close();
-		System.out.println("done");
+	
 		
 	}
 	public static void writeDataFromExcelenteredtxt(WebElement element, String sheetName, int rowNum, int colNum) throws IOException {
@@ -547,7 +655,7 @@ public class Baseclassregistermatrimony {
 		FileOutputStream fileout = new FileOutputStream(f);
 		w.write(fileout);
 		fileout.close();
-		System.out.println("done");
+		
 		
 		
 	}
@@ -572,7 +680,7 @@ public class Baseclassregistermatrimony {
 		FileOutputStream fileout = new FileOutputStream(f);
 		w.write(fileout);
 		fileout.close();
-		System.out.println("done");
+		
 		
 		
 	}

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="236.649828">
+<testcase classname="To Validate register functionlity" name="user have to enter the login" time="236.649828">
+<system-out><![CDATA[Given user have to enter into comunity matrimony page.......................passed
+When user have to enter the login url.......................................passed
+When user have to enter valid username and password.........................passed
+And user have to click the submit button....................................passed
+And user have to enter skip.................................................passed
+And user have to click profile..............................................passed
+And user have to click edit profile.........................................passed
+And user have to click edit profile created by..............................passed
+And user have to click edit profile name....................................passed
+And user have to click edit profile date of birth...........................passed
+And user have to click edit profile marital status..........................passed
+And user have to click edit profile marital status edit.....................passed
+And user have to click edit profile height..................................passed
+And user have to click edit profile weight..................................passed
+And user have to click edit profile physical status.........................passed
+And user have to click edit profile subcaste................................passed
+And user have to click edit profile mother tongue...........................passed
+And user have to click edit profile languages known.........................passed
+And user have to click edit profile gothra..................................passed
+And user have to click edit profile star....................................passed
+And user have to click edit profile rasi....................................passed
+And user have to click edit profile chevvai dosham..........................passed
+And user have to click edit profile chevvai dosham edit.....................passed
+And user have to click edit profile eating habits...........................passed
+And user have to click edit profile eating habits edit......................passed
+And user have to click edit profile smoiking habits.........................passed
+And user have to click edit profile smoiking habits edit....................passed
+And user have to click edit profile drinking habits.........................passed
+And user have to click edit profile drinking habits edit....................passed
+And user have to click edit profile about...................................passed
+And user have to click edit profile save....................................passed
+And user have to click edit profile education and occupation................passed
+And user have to click edit profile Highest Education.......................passed
+And user have to click edit profile College or Institution..................passed
+And user have to click edit profile Education in Detail.....................passed
+And user have to click edit profile Employed In.............................passed
+And user have to click edit profile Employed In edit........................passed
+And user have to click edit profile Occupation..............................passed
+And user have to click edit profile Occupation in Detail....................passed
+And user have to click edit profile Annual Income...........................passed
+And user have to click edit profile save....................................passed
+And user have to click edit profile click family details....................passed
+And user have to click edit profile Parent's Contact No:....................passed
+And user have to click edit profile  Family Value...........................passed
+And user have to click edit profile  Family Value after.....................passed
+And user have to click edit profile  Family Type............................passed
+And user have to click edit profile  Family Type after......................passed
+And user have to click edit profile  Family Status..........................passed
+And user have to click edit profile  Family Status after....................passed
+And user have to click edit profile  Native Place...........................passed
+And user have to click edit profile  Father's Occupation....................passed
+And user have to click edit profile  Mother's Occupation....................passed
+And user have to click edit profile  No. of Brothers........................passed
+And user have to click edit profile  Brothers Married.......................passed
+And user have to click edit profile  No. of Sisters.........................passed
+And user have to click edit profile  Sisters Married........................passed
+And user have to click edit profile  About My Family........................passed
+And user have to click edit profile Click hobbies and interest..............passed
+And user have to click edit profile  What are your Hobbies and Interest?....passed
+And user have to click edit profile  What are your Hobbies and Interest? after.passed
+And user have to click edit profile  Others.................................passed
+And user have to click edit profile  Your favourite music...................passed
+And user have to click edit profile  Your favourite music after.............passed
+And user have to click edit profile  Others music...........................passed
+And user have to click edit profile  Sports you like........................passed
+And user have to click edit profile  Sports you like after..................passed
+And user have to click edit profile  Others sports..........................passed
+And user have to click edit profile  Your favourite food....................passed
+And user have to click edit profile  Your favourite food others.............passed
+And user have to click edit profile  Others favourite food..................passed
+And user have to click edit profile  save...................................passed
+And user have to click edit profile  edit partner preference................passed
+And user have to click edit profile partner preference  marital status......passed
+And user have to click edit profile partner preference  age.................passed
+And user have to click edit profile partner preference  height..............passed
+And user have to click edit profile partner preference physical status......passed
+And user have to click edit profile partner preference  mother tongue.......passed
+And user have to click edit profile partner preference subcaste.............passed
+And user have to click edit profile partner preference star.................passed
+And user have to click edit profile partner preference  chevvai dosham......passed
+And user have to click edit profile partner preference  educationm..........passed
+And user have to click edit profile partner preference employedIn...........passed
+And user have to click edit profile partner preference occupation...........passed
+And user have to click edit profile partner preference citzenship...........passed
+And user have to click edit profile partner preference country living.......passed
+And user have to click edit profile partner preference residing state in india.passed
+And user have to click edit profile partner preference  residing district...passed
+And user have to click edit profilepartner preference  food habits..........passed
+And user have to click edit profile partner preference smoking habits.......passed
+And user have to click edit profile  partner preference drinking habits.....passed
+And user have to click edit profile  partner preference annual income.......passed
+And user have to click edit profile  partner preference about my partner....passed
+And user have to click edit profile  partner preference save................passed
+Then user invalid details...................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

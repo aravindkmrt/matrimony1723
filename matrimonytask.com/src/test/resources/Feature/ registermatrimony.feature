@@ -129,8 +129,6 @@ And user have to click edit profile weight
 
 And user have to click edit profile physical status
 
-And user have to click edit profile physical status edit
-
 And user have to click edit profile subcaste
 
 And user have to click edit profile mother tongue
@@ -145,11 +143,19 @@ And user have to click edit profile rasi
 
 And user have to click edit profile chevvai dosham
 
+And user have to click edit profile chevvai dosham edit
+
 And user have to click edit profile eating habits
+
+And user have to click edit profile eating habits edit
 
 And user have to click edit profile smoiking habits
 
+And user have to click edit profile smoiking habits edit
+
 And user have to click edit profile drinking habits
+
+And user have to click edit profile drinking habits edit
 
 And user have to click edit profile about
 
@@ -165,6 +171,8 @@ And user have to click edit profile Education in Detail
 
 And user have to click edit profile Employed In
 
+And user have to click edit profile Employed In edit
+
 And user have to click edit profile Occupation 
 
 And user have to click edit profile Occupation in Detail
@@ -179,9 +187,15 @@ And user have to click edit profile Parent's Contact No:
 
 And user have to click edit profile  Family Value
 
+And user have to click edit profile  Family Value after
+
 And user have to click edit profile  Family Type 
 
+And user have to click edit profile  Family Type after
+
 And user have to click edit profile  Family Status
+
+And user have to click edit profile  Family Status after
 
 And user have to click edit profile  Native Place
 
@@ -203,19 +217,27 @@ And user have to click edit profile Click hobbies and interest
 
 And user have to click edit profile  What are your Hobbies and Interest?
 
+And user have to click edit profile  What are your Hobbies and Interest? after
+
 And user have to click edit profile  Others 
 
 And user have to click edit profile  Your favourite music
 
-And user have to click edit profile  Others 
+And user have to click edit profile  Your favourite music after
+
+And user have to click edit profile  Others music
 
 And user have to click edit profile  Sports you like
 
-And user have to click edit profile  Others 
+And user have to click edit profile  Sports you like after
+
+And user have to click edit profile  Others sports
 
 And user have to click edit profile  Your favourite food
 
-And user have to click edit profile  Others 
+And user have to click edit profile  Your favourite food others
+
+And user have to click edit profile  Others favourite food
 
 And user have to click edit profile  save
 
@@ -263,15 +285,23 @@ And user have to click edit profile  partner preference about my partner
 
 And user have to click edit profile  partner preference save 
 
-
-
-
-
-
 Then user invalid details
- 
 
 
+@tags3
+Scenario: To valitade listing
+
+When user have to enter the login url listing
+
+When user have to enter valid username and password listing
+
+And user have to click the submit button listing
+
+And user have to enter skip 
+
+And user have to click Home
+
+And user have to click Profiles viewed & not contacted
 
 
 

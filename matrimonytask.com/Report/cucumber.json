@@ -1,0 +1,1166 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 3261273701,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user have to enter into comunity matrimony page",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_enter_into_comunity_matrimony_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-07-13T09:50:24.257Z",
+        "line": 102,
+        "name": "user have to enter the login",
+        "description": "",
+        "id": "to-validate-register-functionlity;user-have-to-enter-the-login",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 9414873701,
+              "status": "passed"
+            },
+            "line": 104,
+            "name": "user have to enter the login url",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_enter_the_login_url()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 312111300,
+              "status": "passed"
+            },
+            "line": 106,
+            "name": "user have to enter valid username and password",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_enter_valid_username_and_password()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 10194435500,
+              "status": "passed"
+            },
+            "line": 108,
+            "name": "user have to click the submit button",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_the_submit_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 21493836400,
+              "status": "passed"
+            },
+            "line": 110,
+            "name": "user have to enter skip",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_enter_skip()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 265314501,
+              "status": "passed"
+            },
+            "line": 112,
+            "name": "user have to click profile",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_profile()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 7784705701,
+              "status": "passed"
+            },
+            "line": 114,
+            "name": "user have to click edit profile",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3223025200,
+              "status": "passed"
+            },
+            "line": 116,
+            "name": "user have to click edit profile created by",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_created_by()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 866755400,
+              "status": "passed"
+            },
+            "line": 118,
+            "name": "user have to click edit profile name",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_name()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5671908900,
+              "status": "passed"
+            },
+            "line": 120,
+            "name": "user have to click edit profile date of birth",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_date_of_birth()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 665181599,
+              "status": "passed"
+            },
+            "line": 122,
+            "name": "user have to click edit profile marital status",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_marital_status()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 569525001,
+              "status": "passed"
+            },
+            "line": 124,
+            "name": "user have to click edit profile marital status edit",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_marital_status_edit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1860111201,
+              "status": "passed"
+            },
+            "line": 126,
+            "name": "user have to click edit profile height",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_height()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3130020799,
+              "status": "passed"
+            },
+            "line": 128,
+            "name": "user have to click edit profile weight",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_weight()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 847161100,
+              "status": "passed"
+            },
+            "line": 130,
+            "name": "user have to click edit profile physical status",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_physical_status()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1866472700,
+              "status": "passed"
+            },
+            "line": 132,
+            "name": "user have to click edit profile subcaste",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_subcaste()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3532616701,
+              "status": "passed"
+            },
+            "line": 134,
+            "name": "user have to click edit profile mother tongue",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_mother_tongue()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1082301,
+              "status": "passed"
+            },
+            "line": 136,
+            "name": "user have to click edit profile languages known",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_languages_known()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 722666699,
+              "status": "passed"
+            },
+            "line": 138,
+            "name": "user have to click edit profile gothra",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_gothra()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1769518400,
+              "status": "passed"
+            },
+            "line": 140,
+            "name": "user have to click edit profile star",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_star()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1954246999,
+              "status": "passed"
+            },
+            "line": 142,
+            "name": "user have to click edit profile rasi",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_rasi()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 521954200,
+              "status": "passed"
+            },
+            "line": 144,
+            "name": "user have to click edit profile chevvai dosham",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_chevvai_dosham()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 551648700,
+              "status": "passed"
+            },
+            "line": 146,
+            "name": "user have to click edit profile chevvai dosham edit",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_chevvai_dosham_edit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 618260100,
+              "status": "passed"
+            },
+            "line": 148,
+            "name": "user have to click edit profile eating habits",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_eating_habits()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 614246701,
+              "status": "passed"
+            },
+            "line": 150,
+            "name": "user have to click edit profile eating habits edit",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_eating_habits_edit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 525377700,
+              "status": "passed"
+            },
+            "line": 152,
+            "name": "user have to click edit profile smoiking habits",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_smoiking_habits()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 567262299,
+              "status": "passed"
+            },
+            "line": 154,
+            "name": "user have to click edit profile smoiking habits edit",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_smoiking_habits_edit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 562011200,
+              "status": "passed"
+            },
+            "line": 156,
+            "name": "user have to click edit profile drinking habits",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_drinking_habits()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 549137200,
+              "status": "passed"
+            },
+            "line": 158,
+            "name": "user have to click edit profile drinking habits edit",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_drinking_habits_edit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1080353600,
+              "status": "passed"
+            },
+            "line": 160,
+            "name": "user have to click edit profile about",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_about()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1052500,
+              "status": "passed"
+            },
+            "line": 162,
+            "name": "user have to click edit profile save",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_save()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8309891400,
+              "status": "passed"
+            },
+            "line": 164,
+            "name": "user have to click edit profile education and occupation",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_education_and_occupation()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4226558400,
+              "status": "passed"
+            },
+            "line": 166,
+            "name": "user have to click edit profile Highest Education",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Highest_Education()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 758696700,
+              "status": "passed"
+            },
+            "line": 168,
+            "name": "user have to click edit profile College or Institution",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_College_or_Institution()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 726182300,
+              "status": "passed"
+            },
+            "line": 170,
+            "name": "user have to click edit profile Education in Detail",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Education_in_Detail()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 817750800,
+              "status": "passed"
+            },
+            "line": 172,
+            "name": "user have to click edit profile Employed In",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Employed_In()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 715477300,
+              "status": "passed"
+            },
+            "line": 174,
+            "name": "user have to click edit profile Employed In edit",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Employed_In_edit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1871828900,
+              "status": "passed"
+            },
+            "line": 176,
+            "name": "user have to click edit profile Occupation",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Occupation()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 718103301,
+              "status": "passed"
+            },
+            "line": 178,
+            "name": "user have to click edit profile Occupation in Detail",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Occupation_in_Detail()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2076471301,
+              "status": "passed"
+            },
+            "line": 180,
+            "name": "user have to click edit profile Annual Income",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Annual_Income()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1078500,
+              "status": "passed"
+            },
+            "line": 182,
+            "name": "user have to click edit profile save",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_save()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8333445700,
+              "status": "passed"
+            },
+            "line": 184,
+            "name": "user have to click edit profile click family details",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_click_family_details()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 743848300,
+              "status": "passed"
+            },
+            "line": 186,
+            "name": "user have to click edit profile Parent\u0027s Contact No:",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Parent_s_Contact_No()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 807939699,
+              "status": "passed"
+            },
+            "line": 188,
+            "name": "user have to click edit profile  Family Value",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Family_Value()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 559532700,
+              "status": "passed"
+            },
+            "line": 190,
+            "name": "user have to click edit profile  Family Value after",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Family_Value_after()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 607899800,
+              "status": "passed"
+            },
+            "line": 192,
+            "name": "user have to click edit profile  Family Type",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Family_Type()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 522514500,
+              "status": "passed"
+            },
+            "line": 194,
+            "name": "user have to click edit profile  Family Type after",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Family_Type_after()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 489615700,
+              "status": "passed"
+            },
+            "line": 196,
+            "name": "user have to click edit profile  Family Status",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Family_Status()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 549330301,
+              "status": "passed"
+            },
+            "line": 198,
+            "name": "user have to click edit profile  Family Status after",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Family_Status_after()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 740460599,
+              "status": "passed"
+            },
+            "line": 200,
+            "name": "user have to click edit profile  Native Place",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Native_Place()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 752498999,
+              "status": "passed"
+            },
+            "line": 202,
+            "name": "user have to click edit profile  Father\u0027s Occupation",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Father_s_Occupation()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 731828400,
+              "status": "passed"
+            },
+            "line": 204,
+            "name": "user have to click edit profile  Mother\u0027s Occupation",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Mother_s_Occupation()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1362256900,
+              "status": "passed"
+            },
+            "line": 206,
+            "name": "user have to click edit profile  No. of Brothers",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_No_of_Brothers()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1291794100,
+              "status": "passed"
+            },
+            "line": 208,
+            "name": "user have to click edit profile  Brothers Married",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Brothers_Married()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1260157900,
+              "status": "passed"
+            },
+            "line": 210,
+            "name": "user have to click edit profile  No. of Sisters",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_No_of_Sisters()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1270202800,
+              "status": "passed"
+            },
+            "line": 212,
+            "name": "user have to click edit profile  Sisters Married",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Sisters_Married()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 783799701,
+              "status": "passed"
+            },
+            "line": 214,
+            "name": "user have to click edit profile  About My Family",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_About_My_Family()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8292501800,
+              "status": "passed"
+            },
+            "line": 216,
+            "name": "user have to click edit profile Click hobbies and interest",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Click_hobbies_and_interest()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4259936300,
+              "status": "passed"
+            },
+            "line": 218,
+            "name": "user have to click edit profile  What are your Hobbies and Interest?",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_What_are_your_Hobbies_and_Interest()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4634709100,
+              "status": "passed"
+            },
+            "line": 220,
+            "name": "user have to click edit profile  What are your Hobbies and Interest? after",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_What_are_your_Hobbies_and_Interest_after()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 700156000,
+              "status": "passed"
+            },
+            "line": 222,
+            "name": "user have to click edit profile  Others",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Others()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 942114300,
+              "status": "passed"
+            },
+            "line": 224,
+            "name": "user have to click edit profile  Your favourite music",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Your_favourite_music()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1084592100,
+              "status": "passed"
+            },
+            "line": 226,
+            "name": "user have to click edit profile  Your favourite music after",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Your_favourite_music_after()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 700431300,
+              "status": "passed"
+            },
+            "line": 228,
+            "name": "user have to click edit profile  Others music",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Others_music()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2193196900,
+              "status": "passed"
+            },
+            "line": 230,
+            "name": "user have to click edit profile  Sports you like",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Sports_you_like()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2044502100,
+              "status": "passed"
+            },
+            "line": 232,
+            "name": "user have to click edit profile  Sports you like after",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Sports_you_like_after()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 665472500,
+              "status": "passed"
+            },
+            "line": 234,
+            "name": "user have to click edit profile  Others sports",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Others_sports()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4130223500,
+              "status": "passed"
+            },
+            "line": 236,
+            "name": "user have to click edit profile  Your favourite food",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Your_favourite_food()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3289931400,
+              "status": "passed"
+            },
+            "line": 238,
+            "name": "user have to click edit profile  Your favourite food others",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Your_favourite_food_others()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 657606800,
+              "status": "passed"
+            },
+            "line": 240,
+            "name": "user have to click edit profile  Others favourite food",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_Others_favourite_food()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 952200,
+              "status": "passed"
+            },
+            "line": 242,
+            "name": "user have to click edit profile  save",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_save1()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 35822547200,
+              "status": "passed"
+            },
+            "line": 244,
+            "name": "user have to click edit profile  edit partner preference",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_edit_partner_preference()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 588769500,
+              "status": "passed"
+            },
+            "line": 246,
+            "name": "user have to click edit profile partner preference  marital status",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_marital_status()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1091437600,
+              "status": "passed"
+            },
+            "line": 248,
+            "name": "user have to click edit profile partner preference  age",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_age()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1215531700,
+              "status": "passed"
+            },
+            "line": 250,
+            "name": "user have to click edit profile partner preference  height",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_height()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 770334200,
+              "status": "passed"
+            },
+            "line": 252,
+            "name": "user have to click edit profile partner preference physical status",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_physical_status()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 904028600,
+              "status": "passed"
+            },
+            "line": 254,
+            "name": "user have to click edit profile partner preference  mother tongue",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_mother_tongue()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 835816000,
+              "status": "passed"
+            },
+            "line": 256,
+            "name": "user have to click edit profile partner preference subcaste",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_subcaste()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 798825100,
+              "status": "passed"
+            },
+            "line": 258,
+            "name": "user have to click edit profile partner preference star",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_star()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 586624300,
+              "status": "passed"
+            },
+            "line": 260,
+            "name": "user have to click edit profile partner preference  chevvai dosham",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_chevvai_dosham()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 663092900,
+              "status": "passed"
+            },
+            "line": 262,
+            "name": "user have to click edit profile partner preference  educationm",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_educationm()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 809859200,
+              "status": "passed"
+            },
+            "line": 264,
+            "name": "user have to click edit profile partner preference employedIn",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_employedIn()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 871983600,
+              "status": "passed"
+            },
+            "line": 266,
+            "name": "user have to click edit profile partner preference occupation",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_occupation()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 853195500,
+              "status": "passed"
+            },
+            "line": 268,
+            "name": "user have to click edit profile partner preference citzenship",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_citzenship()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 873717100,
+              "status": "passed"
+            },
+            "line": 270,
+            "name": "user have to click edit profile partner preference country living",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_country_living()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 866501000,
+              "status": "passed"
+            },
+            "line": 272,
+            "name": "user have to click edit profile partner preference residing state in india",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_residing_state_in_india()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 417468500,
+              "status": "passed"
+            },
+            "line": 274,
+            "name": "user have to click edit profile partner preference  residing district",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_residing_district()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 814324700,
+              "status": "passed"
+            },
+            "line": 276,
+            "name": "user have to click edit profilepartner preference  food habits",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profilepartner_preference_food_habits()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 653116200,
+              "status": "passed"
+            },
+            "line": 278,
+            "name": "user have to click edit profile partner preference smoking habits",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_smoking_habits()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 475234200,
+              "status": "passed"
+            },
+            "line": 280,
+            "name": "user have to click edit profile  partner preference drinking habits",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_drinking_habits()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1578249300,
+              "status": "passed"
+            },
+            "line": 282,
+            "name": "user have to click edit profile  partner preference annual income",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_annual_income()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 547534400,
+              "status": "passed"
+            },
+            "line": 284,
+            "name": "user have to click edit profile  partner preference about my partner",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_about_my_partner()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 24872213800,
+              "status": "passed"
+            },
+            "line": 286,
+            "name": "user have to click edit profile  partner preference save",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_have_to_click_edit_profile_partner_preference_save()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 516800,
+              "status": "passed"
+            },
+            "line": 288,
+            "name": "user invalid details",
+            "match": {
+              "location": "stepdefinitionmatrimonyregister.user_invalid_details()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login"
+          }
+        ]
+      }
+    ],
+    "name": "To Validate register functionlity",
+    "description": "",
+    "id": "to-validate-register-functionlity",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/Feature/%20registermatrimony.feature",
+    "tags": []
+  }
+]
