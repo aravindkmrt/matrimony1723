@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -110,7 +111,14 @@ public class Baseclassregistermatrimony {
 		return s1;
 
 	}
+	public static void waitingWeb() {
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
+	}
+	public static void pageLoadTime() {
+		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+
+	}
 	public static void toClick(WebElement element) {
 		element.click();
 	}
@@ -318,6 +326,38 @@ public class Baseclassregistermatrimony {
 		String windowId = driver.getWindowHandle();
 		System.out.println(windowId);
 	}
+public static void alertAccept2() throws AWTException {
+		
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+	}
+public static void switchWindow(int i) {
+	Set<String> windowHandles = driver.getWindowHandles();
+	a= new ArrayList();
+	List<String>listofwindowid =  a ;
+	listofwindowid.addAll(windowHandles);
+	String index = listofwindowid.get(i);
+	driver.switchTo().window(index);
+}
+public static void switchWindow1(int j) {
+	Set<String> windowHandles = driver.getWindowHandles();
+	a= new ArrayList();
+	List<String>listofwindowid =  a ;
+	listofwindowid.addAll(windowHandles);
+	String index = listofwindowid.get(j);
+	driver.switchTo().window(index);
+}
+
+public static void back() {
+	driver.navigate().back();
+		}
+public static void Refresh() {
+	driver.navigate().refresh();
+		}
+
 
 	////////////////////// Screen SHot //////////////////////////////////////
 
@@ -343,7 +383,7 @@ public class Baseclassregistermatrimony {
 
 	public static String getExcelData(String sheetName, int rowNum, int colNum) throws Throwable {
 		FileInputStream fis = new FileInputStream(
-				"C:\\Users\\aravi\\eclipse-workspace\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+				System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		Workbook wb = WorkbookFactory.create(fis);
 		Sheet sh = wb.getSheet(sheetName);
 		Row row = sh.getRow(rowNum);
@@ -354,7 +394,7 @@ public class Baseclassregistermatrimony {
 
 	public static int getExcelData1(String sheetName, int rowNum, int colNum) throws Throwable {
 		FileInputStream fis = new FileInputStream(
-				"C:\\Users\\aravi\\eclipse-workspace\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+				System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		Workbook wb = WorkbookFactory.create(fis);
 		Sheet sh = wb.getSheet(sheetName);
 		Row row = sh.getRow(rowNum);
@@ -365,7 +405,7 @@ public class Baseclassregistermatrimony {
 
 	public static int getCellCount(String sheetName) throws Throwable {
 		FileInputStream fis = new FileInputStream(
-				"C:\\Users\\aravi\\eclipse-workspace\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+				System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		Workbook wb = WorkbookFactory.create(fis);
 		Sheet sh = wb.getSheet(sheetName);
 		Row row = sh.getRow(0);
@@ -375,7 +415,7 @@ public class Baseclassregistermatrimony {
 
 	public static int getExcelRandomRowNum(String sheetName) throws Throwable {
 		FileInputStream fis = new FileInputStream(
-				"C:\\Users\\aravi\\eclipse-workspace\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+				System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		Workbook wb = WorkbookFactory.create(fis);
 		Sheet sh = wb.getSheet(sheetName);
 		Random rand = new Random();
@@ -384,7 +424,7 @@ public class Baseclassregistermatrimony {
 	}
 
 	 public static void setExcelData(String sheetName, int rowNum, int colNum,String data) throws Throwable{
-		 File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		 File f = new File(System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 			FileInputStream filein = new FileInputStream(f);
 			
 			Workbook w = new XSSFWorkbook(filein);
@@ -409,14 +449,14 @@ public class Baseclassregistermatrimony {
 
 	public static void setExcelDataInteg(String sheetName, int rowNum, int colNum, int data) throws Throwable {
 		FileInputStream fis = new FileInputStream(
-				"C:\\Users\\aravi\\eclipse-workspace\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+				System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		Workbook wb = WorkbookFactory.create(fis);
 		Sheet sh = wb.getSheet(sheetName);
 		Row row = sh.getRow(rowNum);
 		Cell cel = row.createCell(colNum);
 		cel.setCellValue(data);
 		FileOutputStream fos = new FileOutputStream(
-				"C:\\Users\\aravi\\eclipse-workspace\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+				System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		wb.write(fos);
 		// wb.close();
 
@@ -438,75 +478,6 @@ public class Baseclassregistermatrimony {
 		return randomId;
 	}
 
-	public static List<HashMap<String, String>> readValueFromExcelSheet() throws NullPointerException {
-		List<HashMap<String, String>> mapDatasList = new ArrayList<HashMap<String, String>>();
-		try {
-			File excelLocaltion = new File(
-					"C:\\Users\\CBS Testing\\workspace\\Niresh\\Negative\\excel\\Registration1.xls");
-
-			String sheetName = "Sheet1";
-
-			FileInputStream f = new FileInputStream(excelLocaltion.getAbsolutePath());
-			Workbook w = new XSSFWorkbook(f);
-			Sheet sheet = w.getSheet(sheetName);
-			Row headerRow = sheet.getRow(0);
-			for (int i = 0; i < sheet.getPhysicalNumberOfRows(); i++) {
-				Row currentRow = sheet.getRow(i);
-				HashMap<String, String> mapDatas = new HashMap<String, String>();
-				for (int j = 0; j < headerRow.getPhysicalNumberOfCells(); j++) {
-					Cell currentCell = currentRow.getCell(j);
-
-					switch (currentCell.getCellType()) {
-					case Cell.CELL_TYPE_STRING:
-						mapDatas.put(headerRow.getCell(j).getStringCellValue(), currentCell.getStringCellValue());
-						break;
-					case Cell.CELL_TYPE_NUMERIC:
-						mapDatas.put(headerRow.getCell(j).getStringCellValue(),
-								String.valueOf(currentCell.getNumericCellValue()));
-
-						break;
-
-					}
-				}
-
-				mapDatasList.add(mapDatas);
-			}
-
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
-		return mapDatasList;
-
-	}
-	public void writeData(String GroupID) throws Throwable {
-		   
-		          File src = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
-		          Cell cell = null;
-		          FileInputStream fis = new FileInputStream(src);
-		          XSSFWorkbook wb = new XSSFWorkbook(fis);
-		          Sheet sheet = wb.getSheet("Details");
-
-		          for (int i = 1; i < 12; i++) {
-		             System.out.println("Entering into excel sheet");
-		             cell = sheet.getRow(i).getCell(22);
-		             System.out.println("Iterating cells");
-
-		             if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-		                String str = NumberToTextConverter.toText(cell.getNumericCellValue());
-		                System.out.println("**********Before Replacing**********");
-		                System.out.println(str);
-		                cell.setCellValue(GroupID);
-		             } else {
-		                       System.out.println("We are not entering  numeric data");
-		             }
-		        }
-		        FileOutputStream fout = new FileOutputStream(new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx"));
-		        wb.write(fout);
-		        fout.close();
-
-	
-	}
-	
 	
 	
 	public static void firstSelected(WebElement element) {
@@ -538,7 +509,7 @@ public class Baseclassregistermatrimony {
 	public static String Txtexcel(WebElement element,String sheetName, int rowNum, int colNum) throws Throwable {
 		String s1 = element.getText();
 		System.out.print(s1);
-		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		File f = new File(System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		FileInputStream filein = new FileInputStream(f);
 		
 		Workbook w = new XSSFWorkbook(filein);
@@ -557,7 +528,7 @@ public class Baseclassregistermatrimony {
 	public static String ppeditexcel(WebElement element,String sheetName, int rowNum, int colNum) throws Throwable {
 		String s1 = element.getText();
 		System.out.println(":"+s1);
-		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		File f = new File(System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		FileInputStream filein = new FileInputStream(f);
 		
 		Workbook w = new XSSFWorkbook(filein);
@@ -576,7 +547,7 @@ public class Baseclassregistermatrimony {
 	public static String Txtexcel1(WebElement element,String sheetName, int rowNum, int colNum) throws Throwable {
 		String s1 = element.getText();
 		System.out.print(s1);
-		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		File f = new File(System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		FileInputStream filein = new FileInputStream(f);
 		
 		Workbook w = new XSSFWorkbook(filein);
@@ -595,7 +566,7 @@ public class Baseclassregistermatrimony {
 	public static String ppeditexcel1(WebElement element,String sheetName, int rowNum, int colNum) throws Throwable {
 		String s1 = element.getText();
 		System.out.print(":"+s1);
-		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		File f = new File(System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		FileInputStream filein = new FileInputStream(f);
 		
 		Workbook w = new XSSFWorkbook(filein);
@@ -620,7 +591,7 @@ public class Baseclassregistermatrimony {
 		String firstSelected1 = s.getFirstSelectedOption().getText();
 
 		
-		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		File f = new File(System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		FileInputStream filein = new FileInputStream(f);
 		
 		Workbook w = new XSSFWorkbook(filein);
@@ -642,7 +613,7 @@ public class Baseclassregistermatrimony {
 		
 
 		
-		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		File f = new File(System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		FileInputStream filein = new FileInputStream(f);
 		
 		Workbook w = new XSSFWorkbook(filein);
@@ -666,7 +637,7 @@ public class Baseclassregistermatrimony {
 		
 
 		
-		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
+		File f = new File(System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		FileInputStream filein = new FileInputStream(f);
 		
 		Workbook w = new XSSFWorkbook(filein);
@@ -688,18 +659,9 @@ public class Baseclassregistermatrimony {
 		return (li.get(i).getText());
 //		 li.get(i).getAttribute("innerHTML");
 }
-	public static void createExcel(String sheetName, String cellValue, int rowNo, int cellNo) throws IOException {
-		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\aravind.xlsx");
-		Workbook workbook = new XSSFWorkbook();
-		Sheet newSheet = workbook.createSheet(sheetName);
-		Row newRow = newSheet.createRow(rowNo);
-		Cell newCell = newRow.createCell(cellNo);
-		newCell.setCellValue(cellValue);
-		FileOutputStream fos = new FileOutputStream(f);
-		workbook.write(fos);
-	}
+	
 	public static void writeExcel(String sheetName, int rowNo, int cellNo, String cellValue) throws IOException {
-		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\aravind.xlsx");
+		File f = new File(System.getProperty("user.dir")+"\\Excel\\Matrimony.xlsx");
 		FileInputStream fis = new FileInputStream(f);
 		Workbook workbook = new XSSFWorkbook(fis);
 		Sheet sheet = workbook.getSheet(sheetName);
@@ -715,40 +677,9 @@ public class Baseclassregistermatrimony {
 	
 	
 		
-	public static void excelwrite(List<WebElement> element, String sheetName, int rowNum, int colNum) throws Throwable {
-		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Excel\\Matrimony.xlsx");
-		FileInputStream filein = new FileInputStream(f);
-		
-		Workbook w = new XSSFWorkbook(filein);
-		Sheet sheet = w.getSheet(sheetName);
-		int j = colNum;
-		for (int i = rowNum; i < element.size(); i++) {
-j=i-1;
-Row newrow = sheet.getRow(i);
-Cell cell = newrow.getCell(j);
-String s3 = element.get(i).getText();
-cell.setCellValue(s3);
-cell = newrow.createCell(1);
-String s4 = element.get(i).getText();
-cell.setCellValue(s4);
-cell = newrow.createCell(2);
-String s5 = element.get(i).getText();
-cell.setCellValue(s5);
-cell = newrow.createCell(3);
-String s6 = element.get(i).getText();
-cell.setCellValue(s6);
-		
-		}
-		
-			
-		FileOutputStream fileout = new FileOutputStream(f);
-		w.write(fileout);
-		fileout.close();
-		System.out.println("done");
-		
+	
 		}
 		
 	
 	
 
-}

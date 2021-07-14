@@ -10,7 +10,7 @@ import net.masterthought.cucumber.ReportBuilder;
 public class JVMreportGeneration {
 
 	public static void Jvmreport(String json) {
-		File f = new File("C:\\Users\\Aravindthanika-54029\\git\\matrimony172\\matrimonytask.com\\Report");
+		File f = new File(System.getProperty("user.dir")+"\\Report");
 		
 		Configuration c = new Configuration(f, "Matrimony Pi");
 		c.addClassifications("Platform", "Windows");

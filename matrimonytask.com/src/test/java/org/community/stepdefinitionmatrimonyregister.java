@@ -655,8 +655,8 @@ public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony 
 	@When("user have to enter skip")
 	public void user_have_to_enter_skip() throws Throwable {
 		Thread.sleep(5000);
-
-		driver.findElement(By.xpath("//*[@class=\"clr7 font16\"]")).click();
+alertAccept2();
+//		driver.findElement(By.xpath("//*[@class=\"clr7 font16\"]")).click();
 		Thread.sleep(5000);
 		alertAccept1();
 		// driver.findElement(By.xpath("//*[@alt='close']")).click();
@@ -3719,12 +3719,11 @@ public class stepdefinitionmatrimonyregister extends Baseclassregistermatrimony 
 
 	@When("user have to click edit profile partner preference  residing district")
 	public void user_have_to_click_edit_profile_partner_preference_residing_district() {
-		WebElement resid2 = driver.findElement(By.xpath("//*[@name='residingCity[]']"));
+		waitingWeb();
+		WebElement get123 = driver.findElement(By.xpath("//*[@id=\"residingCity\"]"));
 
-		selectValue(resid2, "Chennai");
-		List<WebElement> radios1 = driver
-				.findElements(By.xpath("//*[@id=\"indianCity\"]/dl[1]/dd/div[1]/span/span[1]/span/ul"));
-		allSelectedOption(radios1);
+		selectIndex(get123, 6);
+	
 
 	}
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="236.649828">
-<testcase classname="To Validate register functionlity" name="user have to enter the login" time="236.649828">
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="243.503013">
+<testcase classname="To Validate register functionlity" name="user have to enter the login" time="243.503013">
 <system-out><![CDATA[Given user have to enter into comunity matrimony page.......................passed
 When user have to enter the login url.......................................passed
 When user have to enter valid username and password.........................passed
